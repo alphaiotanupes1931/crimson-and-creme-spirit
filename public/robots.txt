@@ -1,5 +1,5 @@
 # Alpha Iota Chapter - Kappa Alpha Psi Fraternity, Inc.
-# https://alphaiotakappapsi.com
+# https://ainupes1931.com
 
 User-agent: Googlebot
 Allow: /
@@ -20,4 +20,4 @@ Allow: /
 Disallow: /portal
 
 # Sitemap
-Sitemap: https://alphaiotakappapsi.com/sitemap.xml
+Sitemap: https://ainupes1931.com/sitemap.xml
