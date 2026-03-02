@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import serviceImg from '@/assets/service-new.jpg';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceHeader from '@/assets/service-header.jpg';
+import outreach1 from '@/assets/service-outreach-1.jpg';
+import outreach2 from '@/assets/service-outreach-2.jpg';
 
 const programs = [
   {
@@ -20,7 +22,7 @@ const programs = [
     title: "Community Outreach",
     description: "Regular community service initiatives including food drives, clothing donations, voter registration, and partnerships with local organizations to address community needs.",
     highlights: ["Food & Clothing Drives", "Voter Registration", "Health Awareness", "Youth Programs"],
-    image: serviceImg
+    images: [outreach1, outreach2, serviceImg]
   }
 ];
 
@@ -100,13 +102,18 @@ export const ServicePage = () => {
                         allowFullScreen
                       />
                     </div>
-                  ) : (
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full aspect-video object-cover"
-                    />
-                  )}
+                  ) : program.images ? (
+                    <div className="grid grid-cols-2 gap-2">
+                      {program.images.map((img, i) => (
+                        <img
+                          key={i}
+                          src={img}
+                          alt={`${program.title} ${i + 1}`}
+                          className={`w-full object-cover ${i === 0 ? 'col-span-2 aspect-video' : 'aspect-square'}`}
+                        />
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </motion.div>
             ))}
