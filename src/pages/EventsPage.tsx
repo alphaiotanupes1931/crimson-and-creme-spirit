@@ -2,9 +2,15 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import eventsImg from '@/assets/events-new.jpg';
+import kater2you from '@/assets/kater-2-you.jpg';
+import outreach1 from '@/assets/service-outreach-1.jpg';
+import outreach2 from '@/assets/service-outreach-2.jpg';
 
 // Event images from ainupes1931.com
 const eventImages = [
+  { src: kater2you, alt: "Kater 2 You Event" },
+  { src: outreach1, alt: "Community Service Event" },
+  { src: outreach2, alt: "Community Service Event" },
   { src: "https://i.ibb.co/pBTcPDGw/550752848-18525648166059119-3641791866013179254-n.jpg", alt: "Brotherhood Event" },
   { src: "https://i.ibb.co/TDXZSX8c/553688566-18526744873059119-1731940400145656090-n.jpg", alt: "Sports Event" },
   { src: "https://i.ibb.co/rKy1ppQR/553742451-18526744930059119-8240484950499882513-n.jpg", alt: "Chapter Performance" },

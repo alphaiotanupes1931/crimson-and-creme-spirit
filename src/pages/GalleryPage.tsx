@@ -2,9 +2,15 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import galleryHeader from '@/assets/gallery-header.jpg';
+import brothersField from '@/assets/brothers-field.jpg';
+import kappaVegasGala from '@/assets/kappa-vegas-gala.png';
+import brothersBlazers from '@/assets/brothers-blazers.png';
 
 // All gallery images from ainupes1931.com/gallery.html
 const galleryImages = [
+  { src: brothersField, alt: "Brothers at Morgan State field", category: "Brotherhood" },
+  { src: kappaVegasGala, alt: "52nd Annual Kappa Vegas Gala 2025", category: "Events" },
+  { src: brothersBlazers, alt: "Brothers in crimson blazers", category: "Brotherhood" },
   { src: "https://i.ibb.co/whzKkyyt/IMG-3584.jpg", alt: "Brotherhood Event", category: "Events" },
   { src: "https://i.ibb.co/Kj0qw6qs/IMG-3585.jpg", alt: "Sports Event", category: "Events" },
   { src: "https://i.ibb.co/0j4HX3Cj/IMG-3317.jpg", alt: "Chapter Performance", category: "Step Show" },

@@ -19,18 +19,19 @@ const activeBrothersData = [
   { name: "Nicholas Porter", lineNumber: "3AI23FA", image: "https://i.ibb.co/ymqZ0r6X/4H7A9992.png" },
   { name: "Miles Hooper", lineNumber: "2AI23SP", image: "https://i.ibb.co/Z6TNp0n4/4H7A9985.png" },
   { name: "Xavier Johnson", lineNumber: "0AI23SP", position: "Strategus", image: "https://i.ibb.co/XfKPKByg/xavier.jpg" },
+  { name: "Malachi Woods", lineNumber: "1LZFA24", image: null },
 ];
 
 // Sort by deference order: oldest to youngest (year asc, SP before FA, then line number)
 const sortByDeference = (a: typeof activeBrothersData[0], b: typeof activeBrothersData[0]) => {
   // Parse line number format: {num}AI{year}{semester}
   const parseLineNumber = (ln: string) => {
-    const match = ln.match(/^(\d+)AI(\d+)(SP|FA)$/i);
-    if (!match) return { num: 0, year: 0, semester: 'FA' };
+    const match = ln.match(/^(\d+)(\w+?)(\d+)(SP|FA)$/i);
+    if (!match) return { num: 0, year: 99, semester: 'FA' };
     return {
       num: parseInt(match[1]),
-      year: parseInt(match[2]),
-      semester: match[3].toUpperCase()
+      year: parseInt(match[3]),
+      semester: match[4].toUpperCase()
     };
   };
   
@@ -165,11 +166,20 @@ export const BrothersPage = () => {
                   className="group"
                 >
                   <div className="relative overflow-hidden mb-4">
-                    <img
-                      src={brother.image}
-                      alt={`Brother ${brother.name} - Active member of Alpha Iota Chapter`}
-                      className="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
+                    {brother.image ? (
+                      <img
+                        src={brother.image}
+                        alt={`Brother ${brother.name} - Active member of Alpha Iota Chapter`}
+                        className="w-full aspect-square object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full aspect-square bg-card flex flex-col items-center justify-center gap-2">
+                        <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
+                          <span className="text-2xl font-display text-muted-foreground">{brother.name.charAt(0)}</span>
+                        </div>
+                        <p className="text-muted-foreground text-xs font-medium">Photo Coming Soon</p>
+                      </div>
+                    )}
                   </div>
                   <p className="font-display text-lg text-foreground">{brother.name}</p>
                   {brother.position && <p className="text-cream text-sm font-semibold">{brother.position}</p>}

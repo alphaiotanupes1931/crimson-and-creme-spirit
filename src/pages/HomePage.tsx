@@ -258,7 +258,7 @@ export const HomePage = () => {
                 BROTHER BRANDON WYLIE
               </h2>
 
-              <p className="text-cream font-semibold tracking-wider text-sm mb-4">2AI00FA · 109 FALL</p>
+              <p className="text-cream font-semibold tracking-wider text-sm mb-4">2AI00FA</p>
               
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
