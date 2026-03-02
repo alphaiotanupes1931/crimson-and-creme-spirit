@@ -2,10 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Play } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
+import brandonVideo from '@/assets/brandon-wylie.mp4';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -122,7 +123,7 @@ export const HomePage = () => {
               className="relative"
             >
               <div className="relative">
-                <div className="relative aspect-[3/4] max-w-md mx-auto bg-background border-4 border-cream/20 overflow-hidden">
+                <div className="relative aspect-[3/4] max-w-xs mx-auto bg-background border-4 border-cream/20 overflow-hidden">
                   <img
                     src="https://tmcf.org/wp-content/uploads/news-story-image-marcus-mcclean-scaled.png"
                     alt="Brother Marcus McClean, Polemarch of Alpha Iota Chapter"
@@ -216,6 +217,63 @@ export const HomePage = () => {
                   Connect With Us <ChevronRight className="w-4 h-4" />
                 </Link>
               </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fellow Achiever - Brandon Wylie */}
+      <section className="py-24 bg-card">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative aspect-[9/16] max-w-sm mx-auto bg-background border-4 border-cream/20 overflow-hidden rounded-lg">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                  poster=""
+                >
+                  <source src={brandonVideo} type="video/mp4" />
+                </video>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">Fellow Achiever Spotlight</span>
+              
+              <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4">
+                BROTHER BRANDON WYLIE
+              </h2>
+
+              <p className="text-cream font-semibold tracking-wider text-sm mb-4">2AI00FA · 109 FALL</p>
+              
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Brother Brandon Wylie is a distinguished entrepreneur and proud member of the Alpha Iota Chapter. He serves as <span className="text-foreground font-semibold">President of Wylie Funeral Homes, P.A.</span>, and is the co-owner of <span className="text-foreground font-semibold">Fleurs d'Ave Floral Boutique</span> and the <span className="text-foreground font-semibold">Above It All Mental Health Program</span>.
+                </p>
+                <p>
+                  His dedication to service and achievement exemplifies the values of Kappa Alpha Psi Fraternity, Inc. — achievement in every field of human endeavor.
+                </p>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-border">
+                <p className="font-display text-lg text-cream italic">
+                  "Achievement in Every Field of Human Endeavor"
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
