@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import brothersHeader from '@/assets/brothers-header.jpg';
 import defaultBrother from '@/assets/default-brother.png';
+import malachiWoods from '@/assets/malachi-woods.jpg';
 
 // Active brothers data from ainupes1931.com
 const activeBrothersData = [
@@ -19,7 +20,7 @@ const activeBrothersData = [
   { name: "Nicholas Porter", lineNumber: "3AI23FA", image: "https://i.ibb.co/ymqZ0r6X/4H7A9992.png" },
   { name: "Miles Hooper", lineNumber: "2AI23SP", image: "https://i.ibb.co/Z6TNp0n4/4H7A9985.png" },
   { name: "Xavier Johnson", lineNumber: "0AI23SP", position: "Strategus", image: "https://i.ibb.co/XfKPKByg/xavier.jpg" },
-  { name: "Malachi Woods", lineNumber: "1LZFA24", image: null },
+  { name: "Malachi Woods", lineNumber: "1LZFA24", image: malachiWoods },
 ];
 
 // Sort by deference order: oldest to youngest (year asc, SP before FA, then line number)
