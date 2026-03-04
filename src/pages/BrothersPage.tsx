@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import brothersHeader from '@/assets/brothers-header.jpg';
 import defaultBrother from '@/assets/default-brother.png';
+import malachiWoods from '@/assets/malachi-woods.jpg';
 
 // Active brothers data from ainupes1931.com
 const activeBrothersData = [
