@@ -123,16 +123,18 @@ export const HomePage = () => {
               className="relative"
             >
               <div className="relative">
-                <div className="relative aspect-[3/4] max-w-xs mx-auto bg-background border-4 border-cream/20 overflow-hidden">
+                <div className="relative aspect-[3/4] max-w-xs mx-auto overflow-hidden">
                   <img
                     src="https://tmcf.org/wp-content/uploads/news-story-image-marcus-mcclean-scaled.png"
                     alt="Brother Marcus McClean, Polemarch of Alpha Iota Chapter"
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-cream text-background p-6">
-                  <p className="font-display text-4xl">2024-25</p>
-                  <p className="text-sm font-semibold">POLEMARCH</p>
+                <div className="absolute bottom-4 right-4 text-right">
+                  <p className="font-display text-4xl text-cream">2024-25</p>
+                  <p className="text-sm font-semibold text-cream/80">POLEMARCH</p>
                 </div>
               </div>
             </motion.div>
@@ -152,7 +154,7 @@ export const HomePage = () => {
               className="order-2 lg:order-1 relative"
             >
               <div className="relative">
-                <div className="relative aspect-video bg-background border-4 border-cream/20 overflow-hidden">
+                <div className="relative aspect-video overflow-hidden rounded-lg">
                   {!webmasterVideoPlaying ? (
                     <div 
                       className="relative w-full h-full cursor-pointer group"
@@ -163,7 +165,9 @@ export const HomePage = () => {
                         alt="Brother Terell Reed, Webmaster of Alpha Iota Chapter"
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-background/30 group-hover:bg-background/20 transition-colors duration-300 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
+                      <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-20 h-20 rounded-full bg-cream/90 group-hover:bg-cream flex items-center justify-center transition-all duration-300 group-hover:scale-110">
                           <Play className="w-8 h-8 text-background ml-1" fill="currentColor" />
                         </div>
@@ -178,9 +182,9 @@ export const HomePage = () => {
                     />
                   )}
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-cream text-background p-6">
-                  <p className="font-display text-4xl">2024-25</p>
-                  <p className="text-sm font-semibold">WEBMASTER</p>
+                <div className="absolute bottom-4 left-4">
+                  <p className="font-display text-4xl text-cream">2024-25</p>
+                  <p className="text-sm font-semibold text-cream/80">WEBMASTER</p>
                 </div>
               </div>
             </motion.div>
