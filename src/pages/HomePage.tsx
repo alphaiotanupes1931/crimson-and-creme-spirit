@@ -7,6 +7,8 @@ import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
+import terellPhoto from '@/assets/terell-reed.png';
+import lmiLogo from '@/assets/lmi-logo.png';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -223,6 +225,62 @@ export const HomePage = () => {
               </Button>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* What's Happening Now */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Recent Highlights</span>
+            <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4">
+              WHAT'S HAPPENING <span className="text-gradient-cream">NOW</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="relative grid md:grid-cols-[auto_1fr] gap-8 items-center p-8 rounded-lg border border-border/50 bg-card">
+              {/* Brother Photo */}
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0 rounded-full overflow-hidden flex-shrink-0">
+                <img
+                  src={terellPhoto}
+                  alt="Brother Terell Reed"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 rounded-full ring-2 ring-cream/30" />
+              </div>
+
+              {/* Content */}
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xs font-semibold tracking-widest uppercase text-cream bg-cream/10 px-3 py-1 rounded-full">New Position</span>
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-2">BROTHER TERELL REED</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Has accepted a position as a <span className="text-foreground font-semibold">Digital Transformation Analyst</span> at <span className="text-foreground font-semibold">LMI</span> — a consultancy dedicated to powering a future-ready, high-performing government. A testament to achievement in every field of human endeavor.
+                </p>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={lmiLogo}
+                    alt="LMI Logo"
+                    className="h-6 object-contain opacity-70"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
