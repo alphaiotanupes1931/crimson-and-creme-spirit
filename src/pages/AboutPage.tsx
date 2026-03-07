@@ -96,11 +96,18 @@ export const AboutPage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-            <img
-  src="https://i.ibb.co/XrTLqKfx/KAPsi-Crest1.png"
-  alt="Kappa Alpha Psi Fraternity crest - Alpha Iota Chapter"
-  className="w-full max-w-md mx-auto object-contain border-4 border-cream/20 bg-white p-4"
-/>
+              <div className="relative w-full max-w-md mx-auto">
+                <img
+                  src="https://i.ibb.co/XrTLqKfx/KAPsi-Crest1.png"
+                  alt="Kappa Alpha Psi Fraternity crest - Alpha Iota Chapter"
+                  className="w-full object-contain"
+                />
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  boxShadow: 'inset 0 0 60px 40px hsl(var(--background))',
+                }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 pointer-events-none" />
+              </div>
             </motion.div>
           </div>
         </div>
