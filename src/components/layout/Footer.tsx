@@ -143,6 +143,12 @@ export const Footer = () => {
           <p className="text-muted-foreground text-xs text-center">
             © {new Date().getFullYear()} Alpha Iota Chapter of Kappa Alpha Psi Fraternity, Inc. All rights reserved.
           </p>
+          <p className="text-muted-foreground/40 text-[10px] text-center mt-3">
+            Built by{' '}
+            <a href="https://reeddigitalgroup.com/" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors underline">
+              Reed Digital Group
+            </a>
+          </p>
         </div>
       </div>
     </footer>
