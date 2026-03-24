@@ -7,8 +7,6 @@ import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
-import terellPhoto from '@/assets/terell-reed.png';
-import lmiLogo from '@/assets/lmi-logo.png';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
