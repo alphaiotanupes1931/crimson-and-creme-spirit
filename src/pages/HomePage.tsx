@@ -134,6 +134,8 @@ export const HomePage = () => {
                 </div>
                 <div className="absolute bottom-4 right-4 text-right">
                   <p className="text-sm font-semibold text-cream/80 tracking-wider uppercase">Current Polemarch</p>
+                  <p className="font-display text-lg text-cream">Marcus McClean</p>
+                  <p className="text-xs text-cream/60 tracking-wider">9AI24FA</p>
                 </div>
               </div>
             </motion.div>
