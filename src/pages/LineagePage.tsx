@@ -45,6 +45,7 @@ const chapterRecognition = [
   { title: "8x Eastern Province Chapter of the Year" },
   { title: "10x Junior Vice Polemarch" },
   { title: "10x Mr. Morgan State" },
+  { title: "1x Ronald R. Young Awardee", year: "2026" },
 ];
 
 const individualHonors = [
