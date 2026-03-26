@@ -17,7 +17,7 @@ export const HomePage = () => {
   return (
     <>
       {/* Hero Section with Parallax Video */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
         {/* Video Background with Parallax */}
         <motion.div 
           className="absolute inset-0 z-0"
@@ -32,13 +32,13 @@ export const HomePage = () => {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 md:bg-gradient-to-r" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent md:via-transparent" />
         </motion.div>
 
         {/* Content */}
         <motion.div 
-          className="relative z-10 container mx-auto px-6"
+          className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 md:pt-0"
           style={{ opacity: heroOpacity }}
         >
           <div className="max-w-3xl">
@@ -47,26 +47,26 @@ export const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Kappa Alpha Psi Fraternity, Inc.</span>
+              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase">Kappa Alpha Psi Fraternity, Inc.</span>
 
-              <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-foreground leading-none mt-4 mb-2">
+              <h1 className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-foreground leading-none mt-3 sm:mt-4 mb-2">
                 ALPHA<br />
                 <span className="text-gradient-cream">IOTA</span>
               </h1>
               
-              <p className="text-cream/80 text-lg tracking-wider mb-2">
+              <p className="text-cream/80 text-base sm:text-lg tracking-wider mb-1 sm:mb-2">
                 Chartered May 29, 1931
               </p>
               
-              <p className="text-xl md:text-2xl text-foreground/80 font-light mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-light mb-6 sm:mb-8">
                 Morgan State University
               </p>
               
-              <div className="flex flex-wrap gap-4">
-                <Button variant="hero" size="xl" asChild>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button variant="hero" size="xl" asChild className="w-full sm:w-auto">
                   <Link to="/about">Discover Our Chapter</Link>
                 </Button>
-                <Button variant="heroOutline" size="xl" asChild>
+                <Button variant="heroOutline" size="xl" asChild className="w-full sm:w-auto">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
@@ -133,8 +133,7 @@ export const HomePage = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
                 </div>
                 <div className="absolute bottom-4 right-4 text-right">
-                  <p className="font-display text-4xl text-cream">2024-25</p>
-                  <p className="text-sm font-semibold text-cream/80">POLEMARCH</p>
+                  <p className="text-sm font-semibold text-cream/80 tracking-wider uppercase">Current Polemarch</p>
                 </div>
               </div>
             </motion.div>
