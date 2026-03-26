@@ -37,7 +37,8 @@ const awards = [
   { icon: Trophy, title: "Chapter of the Year", year: "2023" },
   { icon: Award, title: "Province Scholarship Award", year: "2022" },
   { icon: Star, title: "Outstanding Community Service", year: "2023" },
-  { icon: Medal, title: "Step Show Champions", year: "2024" }
+  { icon: Medal, title: "Step Show Champions", year: "2024" },
+  { icon: Award, title: "Ronald R. Young Awardee", year: "2026" }
 ];
 
 export const JournalSection = () => {
