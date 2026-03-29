@@ -7,6 +7,8 @@ import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
+import rryAwardImg from '@/assets/rry-award.jpg';
+import { Award } from 'lucide-react';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -228,7 +230,45 @@ export const HomePage = () => {
       </section>
 
 
-      {/* Fellow Achiever - Brandon Wylie */}
+      {/* Ronald R. Young Award */}
+      <section className="py-20 bg-card border-y border-border">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg mx-auto max-w-lg w-full">
+              <img
+                src={rryAwardImg}
+                alt="Alpha Iota Chapter receiving the 2026 Ronald R. Young Website of the Year Award"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            </div>
+
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-cream/10 border border-cream/20 rounded-full px-4 py-2 mb-6">
+                <Award className="w-4 h-4 text-cream" />
+                <span className="text-cream text-xs font-semibold tracking-[0.2em] uppercase">2026 Award Recipient</span>
+              </div>
+
+              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4 cream-underline pb-4">
+                RONALD R. YOUNG<br />
+                <span className="text-gradient-cream">WEBSITE OF THE YEAR</span>
+              </h2>
+
+              <p className="text-muted-foreground leading-relaxed max-w-xl">
+                The Alpha Iota Chapter is proud to be recognized as the 2026 recipient of the Ronald R. Young Website of the Year Award — a testament to our commitment to digital excellence and innovation within Kappa Alpha Psi Fraternity, Inc.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
