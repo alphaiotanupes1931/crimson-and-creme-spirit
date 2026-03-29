@@ -8,7 +8,7 @@ import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import rryAwardImg from '@/assets/rry-award.jpg';
-import { Award } from 'lucide-react';
+
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -240,20 +240,16 @@ export const HomePage = () => {
             transition={{ duration: 0.8 }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg mx-auto max-w-lg w-full">
+            <div className="relative overflow-hidden mx-auto max-w-lg w-full">
               <img
                 src={rryAwardImg}
                 alt="Alpha Iota Chapter receiving the 2026 Ronald R. Young Website of the Year Award"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
             </div>
 
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-cream/10 border border-cream/20 rounded-full px-4 py-2 mb-6">
-                <Award className="w-4 h-4 text-cream" />
-                <span className="text-cream text-xs font-semibold tracking-[0.2em] uppercase">2026 Award Recipient</span>
-              </div>
+              <span className="text-cream text-xs font-semibold tracking-[0.2em] uppercase">2026 Award Recipient</span>
 
               <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4 cream-underline pb-4">
                 RONALD R. YOUNG<br />
