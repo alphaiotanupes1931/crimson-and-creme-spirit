@@ -7,6 +7,8 @@ import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
+import rryAwardImg from '@/assets/rry-award.jpg';
+import { Award } from 'lucide-react';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
