@@ -227,7 +227,7 @@ export const portalDirectory: Semester[] = [
       { firstName: 'Ian', lastName: 'Grayson', phone: '(443) 750-2693' },
       { firstName: 'Michael', lastName: 'Taliaferro', phone: '(410) 739-6064' },
       { firstName: 'Ajamu', lastName: 'Parry', phone: '(917) 292-4987' },
-      { firstName: 'Jo'rell', lastName: 'Whitfield', phone: '(917) 476-3655' },
+      { firstName: "Jo'rell", lastName: 'Whitfield', phone: '(917) 476-3655' },
       { firstName: 'Larry', lastName: 'Richardson', phone: '' },
     ],
   },
