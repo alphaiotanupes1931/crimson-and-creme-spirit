@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import portalHeader from '@/assets/portal-header.png';
 
-const CHAPTER_PASSWORD = 'alphaiotanupes';
+const CHAPTER_PASSWORD = '5291931Nupes!';
 
 export const ChapterPortalPage = () => {
   const [password, setPassword] = useState('');
