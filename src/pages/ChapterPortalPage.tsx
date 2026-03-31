@@ -96,6 +96,26 @@ export const ChapterPortalPage = () => {
         </div>
       </section>
 
+      {/* Polemarch Section */}
+      <section className="py-16 bg-card border-b border-border">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center">
+            <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Chapter Leadership</span>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mt-3 mb-2">Polemarch</h2>
+            <div className="w-16 h-0.5 bg-cream mx-auto mb-8" />
+            <p className="font-display text-2xl text-cream">Marcus McClean</p>
+            <p className="text-muted-foreground mt-1">Fall 2024</p>
+            <a
+              href="tel:4102749268"
+              className="inline-flex items-center gap-2 mt-4 text-cream hover:text-cream-dark transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span>(410) 274-9268</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Directory */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
