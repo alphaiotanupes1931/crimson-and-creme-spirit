@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      brothers: {
+        Row: {
+          created_at: string
+          email: string | null
+          field_of_study: string | null
+          first_name: string
+          id: string
+          job: string | null
+          last_name: string
+          phone: string | null
+          position: string | null
+          role: string | null
+          semester: string
+          semester_label: string
+          semester_sort: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          field_of_study?: string | null
+          first_name: string
+          id?: string
+          job?: string | null
+          last_name: string
+          phone?: string | null
+          position?: string | null
+          role?: string | null
+          semester: string
+          semester_label?: string
+          semester_sort?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          field_of_study?: string | null
+          first_name?: string
+          id?: string
+          job?: string | null
+          last_name?: string
+          phone?: string | null
+          position?: string | null
+          role?: string | null
+          semester?: string
+          semester_label?: string
+          semester_sort?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
