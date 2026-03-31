@@ -73,7 +73,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      claim_brother_profile: { Args: { brother_id: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
