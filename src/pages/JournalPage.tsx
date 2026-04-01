@@ -1,7 +1,16 @@
 import { motion } from 'framer-motion';
 import aboutHeader from '@/assets/about-header.jpg';
 
+import ronaldGodman from '@/assets/ronald-godman.jpg';
+
 const journalEntries = [
+  {
+    title: "Brother Ronald Godman Performs for Ariana Fletcher",
+    date: "February 2025",
+    image: ronaldGodman,
+    excerpt: "Alpha Iota Chapter proudly celebrates Brother Ronald L. Goodman's private saxophone performance for Ariana Fletcher during a surprise Valentine's Day dinner, showcasing his artistry on a national stage.",
+    category: "Entertainment"
+  },
   {
     title: "Brother Frazier's Tapers & Tequila Grand Opening",
     date: "July 18, 2025",
