@@ -5,8 +5,17 @@ import { Award, Trophy, Star, Medal } from 'lucide-react';
 import brother1 from '@/assets/brother-1.jpg';
 import brother2 from '@/assets/brother-2.jpg';
 import brother3 from '@/assets/brother-3.jpg';
+import ronaldGodman from '@/assets/ronald-godman.jpg';
 
 const journalEntries = [
+  {
+    name: "Brother Ronald Godman",
+    title: "Saxophone Performance for Ariana Fletcher",
+    description: "Performed a private saxophone serenade for Ariana Fletcher during a surprise Valentine's Day dinner curated by Jalysa Scales.",
+    image: ronaldGodman,
+    date: "Spring 2025",
+    lineNumber: ""
+  },
   {
     name: "Brother Marcus Thompson",
     title: "Dean's List Achievement",
