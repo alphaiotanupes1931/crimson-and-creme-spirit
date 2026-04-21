@@ -9,7 +9,7 @@ import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import rryAwardImg from '@/assets/rry-award.jpg';
 import noakesVideo from '@/assets/anthony-noakes-research.mp4';
-import forbesLogo from '@/assets/forbes-30-under-30.png';
+import enitanForbes from '@/assets/enitan-forbes.jpg';
 
 
 export const HomePage = () => {
@@ -332,15 +332,11 @@ export const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
             >
-              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-gradient-to-br from-background via-card to-background overflow-hidden flex items-center justify-center p-12">
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 left-0 w-64 h-64 bg-cream rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 right-0 w-64 h-64 bg-crimson rounded-full blur-3xl" />
-                </div>
+              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-background overflow-hidden">
                 <img
-                  src={forbesLogo}
-                  alt="Forbes 30 Under 30 logo recognizing Brother Oluwatomisin Enitan"
-                  className="relative z-10 w-full max-w-md object-contain group-hover:scale-105 transition-transform duration-700"
+                  src={enitanForbes}
+                  alt="Brother Oluwatomisin Enitan featured on Forbes 30 Under 30 cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="p-8">
