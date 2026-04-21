@@ -358,35 +358,9 @@ export const HomePage = () => {
                 <p className="text-foreground/90 font-semibold mb-4">
                   Brother Oluwatomisin Enitan
                 </p>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed">
                   Honored for a body of pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.
                 </p>
-
-                <div className="border-t border-border pt-6">
-                  <p className="text-xs font-semibold text-cream tracking-[0.2em] uppercase mb-4">Selected Publications</p>
-                  <ul className="space-y-4 text-sm">
-                    <li>
-                      <p className="text-foreground font-semibold leading-snug">Production of Transgenic <span className="italic">Camelina sativa</span> Plants via <span className="italic">Agrobacterium</span>-Mediated Transformation of Shoot Apical Meristems</p>
-                      <p className="text-xs text-muted-foreground mt-1">Jan 2019 · Sitther, Tabatabai, Enitan, Dhekney</p>
-                    </li>
-                    <li>
-                      <p className="text-foreground font-semibold leading-snug"><span className="italic">Agrobacterium</span>-mediated transformation of <span className="italic">Camelina sativa</span> for production of transgenic plants</p>
-                      <p className="text-xs text-muted-foreground mt-1">Jan 2018 · Sitther, Tabatabai, Enitan, Dhekney</p>
-                    </li>
-                    <li>
-                      <p className="text-foreground font-semibold leading-snug">Overexpression of <span className="italic">hlyB</span> and <span className="italic">mdh</span> genes confers halotolerance in <span className="italic">Fremyella diplosiphon</span>, a freshwater cyanobacterium</p>
-                      <p className="text-xs text-muted-foreground mt-1">Apr 2017 · Tabatabai, Arumanayagam, Enitan, Sitther</p>
-                    </li>
-                    <li>
-                      <p className="text-foreground font-semibold leading-snug">Identification of a Halotolerant Mutant via In Vitro Mutagenesis in the Cyanobacterium <span className="italic">Fremyella diplosiphon</span></p>
-                      <p className="text-xs text-muted-foreground mt-1">Jan 2017 · Tabatabai, Arumanayagam, Enitan, Sitther</p>
-                    </li>
-                    <li>
-                      <p className="text-foreground font-semibold leading-snug">Parameters Enhancing Survival of <span className="italic">Agrobacterium</span>-transformed <span className="italic">Camelina sativa</span> Cultures</p>
-                      <p className="text-xs text-muted-foreground mt-1">Sep 2016 · Sitther, Enitan, Tabatabai, Dhekney</p>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </motion.article>
           </div>
