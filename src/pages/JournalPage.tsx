@@ -2,8 +2,25 @@ import { motion } from 'framer-motion';
 import aboutHeader from '@/assets/about-header.jpg';
 
 import ronaldGodman from '@/assets/ronald-godman.jpg';
+import noakesVideo from '@/assets/anthony-noakes-research.mp4';
+import enitanForbes from '@/assets/enitan-forbes.jpg';
 
 const journalEntries = [
+  {
+    title: "A Cure to Cancer — Brother Anthony Noakes Presents Research",
+    date: "April 18, 2026",
+    image: noakesVideo,
+    isVideo: true,
+    excerpt: "Brother Anthony Noakes presented his undergraduate research at Ursinus College's 89th Annual Intercollegiate Student Chemists Convention on Neocaryaflavonoside A, an acylated flavonoid triglucoside from Neocarya macrophylla with antiproliferative activity against triple-negative breast cancer cells.",
+    category: "Scholarship"
+  },
+  {
+    title: "Brother Oluwatomisin Enitan Named to Forbes 30 Under 30",
+    date: "2026",
+    image: enitanForbes,
+    excerpt: "Honored for pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.",
+    category: "Recognition"
+  },
   {
     title: "Brother Ronald Godman Performs for Ariana Fletcher",
     date: "February 2025",
