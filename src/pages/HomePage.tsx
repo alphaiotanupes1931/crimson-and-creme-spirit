@@ -8,6 +8,8 @@ import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import rryAwardImg from '@/assets/rry-award.jpg';
+import noakesVideo from '@/assets/anthony-noakes-research.mp4';
+import forbesLogo from '@/assets/forbes-30-under-30.png';
 
 
 export const HomePage = () => {
@@ -264,6 +266,102 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {/* Recent Achievements */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase">Recent Achievements</span>
+            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4 inline-block">
+              ACHIEVEMENT IN<br />
+              <span className="text-gradient-cream">EVERY FIELD</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg">
+              Celebrating the latest accomplishments of the brothers of Alpha Iota.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Anthony Noakes — Research */}
+            <motion.article
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
+            >
+              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-background overflow-hidden">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                >
+                  <source src={noakesVideo} type="video/mp4" />
+                </video>
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">04 / 18 / 2026</span>
+                  <span className="h-px flex-1 bg-border" />
+                  <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Scholarship</span>
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 leading-tight">
+                  BROTHER ANTHONY NOAKES
+                </h3>
+                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-4">
+                  89th Annual Intercollegiate Student Chemists Convention
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Brother Noakes presented his undergraduate research at Ursinus College, unveiling his work on <span className="text-foreground font-semibold italic">Neocaryaflavonoside A</span> — an acylated flavonoid triglucoside isolated from <span className="text-foreground italic">Neocarya macrophylla</span> with antiproliferative activity against triple-negative breast cancer cells. The presentation builds on his prior semester's research review, advancing scholarship in the fight against cancer.
+                </p>
+              </div>
+            </motion.article>
+
+            {/* Oluwatomisin Enitan — Forbes 30 Under 30 */}
+            <motion.article
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
+            >
+              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-gradient-to-br from-background via-card to-background overflow-hidden flex items-center justify-center p-12">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 left-0 w-64 h-64 bg-cream rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 right-0 w-64 h-64 bg-crimson rounded-full blur-3xl" />
+                </div>
+                <img
+                  src={forbesLogo}
+                  alt="Forbes 30 Under 30 logo recognizing Brother Oluwatomisin Enitan"
+                  className="relative z-10 w-full max-w-md object-contain group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">2026 Honoree</span>
+                  <span className="h-px flex-1 bg-border" />
+                  <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Recognition</span>
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 leading-tight">
+                  BROTHER OLUWATOMISIN ENITAN
+                </h3>
+                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-4">
+                  Forbes 30 Under 30
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  The Alpha Iota Chapter proudly celebrates Brother Oluwatomisin Enitan on his selection to the prestigious <span className="text-foreground font-semibold">Forbes 30 Under 30</span> list — a defining recognition of vision, innovation, and impact among the next generation of leaders shaping the world.
+                </p>
+              </div>
+            </motion.article>
+          </div>
+        </div>
+      </section>
 
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6">
