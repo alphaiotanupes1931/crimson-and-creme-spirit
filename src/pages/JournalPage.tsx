@@ -258,13 +258,24 @@ export const JournalPage = () => {
                 transition={{ delay: index * 0.05 }}
                 className="bg-card border border-border overflow-hidden group"
               >
-                <div className="relative aspect-video overflow-hidden">
-                  <img
-                    src={entry.image}
-                    alt={entry.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
+                <div className="relative aspect-video overflow-hidden bg-background">
+                  {(entry as any).isVideo ? (
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={entry.image} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={entry.image}
+                      alt={entry.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+                  <div className="absolute top-4 left-4 z-10">
                     <span className="bg-crimson text-foreground text-xs font-semibold px-3 py-1">
                       {entry.category}
                     </span>
