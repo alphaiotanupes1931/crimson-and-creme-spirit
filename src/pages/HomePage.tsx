@@ -274,14 +274,12 @@ export const HomePage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-16"
           >
-            <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase">Recent Achievements</span>
-            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4 inline-block">
-              ACHIEVEMENT IN<br />
-              <span className="text-gradient-cream">EVERY FIELD</span>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground cream-underline pb-4 inline-block">
+              RECENT <span className="text-gradient-cream">ACHIEVEMENTS</span>
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg">
+            <p className="text-muted-foreground text-base md:text-lg mt-6">
               Celebrating the latest accomplishments of the brothers of Alpha Iota.
             </p>
           </motion.div>
@@ -311,11 +309,14 @@ export const HomePage = () => {
                   <span className="h-px flex-1 bg-border" />
                   <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Scholarship</span>
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 leading-tight">
-                  BROTHER ANTHONY NOAKES
+                <h3 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-[1.05]">
+                  A CURE TO <span className="text-gradient-cream">CANCER</span>
                 </h3>
-                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-4">
+                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-2">
                   89th Annual Intercollegiate Student Chemists Convention
+                </p>
+                <p className="text-foreground/90 font-semibold mb-4">
+                  Brother Anthony Noakes
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Brother Noakes presented his undergraduate research at Ursinus College, unveiling his work on <span className="text-foreground font-semibold italic">Neocaryaflavonoside A</span> — an acylated flavonoid triglucoside isolated from <span className="text-foreground italic">Neocarya macrophylla</span> with antiproliferative activity against triple-negative breast cancer cells. The presentation builds on his prior semester's research review, advancing scholarship in the fight against cancer.
@@ -348,15 +349,44 @@ export const HomePage = () => {
                   <span className="h-px flex-1 bg-border" />
                   <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Recognition</span>
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 leading-tight">
-                  BROTHER OLUWATOMISIN ENITAN
+                <h3 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-[1.05]">
+                  FORBES <span className="text-gradient-cream">30 UNDER 30</span>
                 </h3>
-                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-4">
-                  Forbes 30 Under 30
+                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-2">
+                  Science · Biotechnology Research
                 </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  The Alpha Iota Chapter proudly celebrates Brother Oluwatomisin Enitan on his selection to the prestigious <span className="text-foreground font-semibold">Forbes 30 Under 30</span> list — a defining recognition of vision, innovation, and impact among the next generation of leaders shaping the world.
+                <p className="text-foreground/90 font-semibold mb-4">
+                  Brother Oluwatomisin Enitan
                 </p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Honored for a body of pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.
+                </p>
+
+                <div className="border-t border-border pt-6">
+                  <p className="text-xs font-semibold text-cream tracking-[0.2em] uppercase mb-4">Selected Publications</p>
+                  <ul className="space-y-4 text-sm">
+                    <li>
+                      <p className="text-foreground font-semibold leading-snug">Production of Transgenic <span className="italic">Camelina sativa</span> Plants via <span className="italic">Agrobacterium</span>-Mediated Transformation of Shoot Apical Meristems</p>
+                      <p className="text-xs text-muted-foreground mt-1">Jan 2019 · Sitther, Tabatabai, Enitan, Dhekney</p>
+                    </li>
+                    <li>
+                      <p className="text-foreground font-semibold leading-snug"><span className="italic">Agrobacterium</span>-mediated transformation of <span className="italic">Camelina sativa</span> for production of transgenic plants</p>
+                      <p className="text-xs text-muted-foreground mt-1">Jan 2018 · Sitther, Tabatabai, Enitan, Dhekney</p>
+                    </li>
+                    <li>
+                      <p className="text-foreground font-semibold leading-snug">Overexpression of <span className="italic">hlyB</span> and <span className="italic">mdh</span> genes confers halotolerance in <span className="italic">Fremyella diplosiphon</span>, a freshwater cyanobacterium</p>
+                      <p className="text-xs text-muted-foreground mt-1">Apr 2017 · Tabatabai, Arumanayagam, Enitan, Sitther</p>
+                    </li>
+                    <li>
+                      <p className="text-foreground font-semibold leading-snug">Identification of a Halotolerant Mutant via In Vitro Mutagenesis in the Cyanobacterium <span className="italic">Fremyella diplosiphon</span></p>
+                      <p className="text-xs text-muted-foreground mt-1">Jan 2017 · Tabatabai, Arumanayagam, Enitan, Sitther</p>
+                    </li>
+                    <li>
+                      <p className="text-foreground font-semibold leading-snug">Parameters Enhancing Survival of <span className="italic">Agrobacterium</span>-transformed <span className="italic">Camelina sativa</span> Cultures</p>
+                      <p className="text-xs text-muted-foreground mt-1">Sep 2016 · Sitther, Enitan, Tabatabai, Dhekney</p>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </motion.article>
           </div>
