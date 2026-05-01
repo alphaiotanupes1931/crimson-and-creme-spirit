@@ -353,12 +353,12 @@ export const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
             >
-              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-background overflow-hidden">
+              <div className="relative aspect-[4/5] bg-black overflow-hidden flex items-center justify-center">
                 <video
                   controls
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 >
                   <source src={noakesVideo} type="video/mp4" />
                 </video>
