@@ -525,6 +525,45 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {/* Instagram Feed */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Follow Along</span>
+            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-3 cream-underline pb-4 inline-block">
+              <span className="text-gradient-cream">@AINUPES1931</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+              The latest from the Nupes of Alpha Iota on Instagram.
+            </p>
+          </motion.div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-card border border-border rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.instagram.com/ainupes1931/embed"
+                className="w-full"
+                style={{ height: '720px', border: 'none' }}
+                scrolling="no"
+              />
+            </div>
+            <div className="text-center mt-8">
+              <Button variant="outline" asChild>
+                <a href="https://www.instagram.com/ainupes1931/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-4 h-4" />
+                  Follow @ainupes1931
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-crimson relative overflow-hidden">
         <div className="container mx-auto px-6 text-center">
