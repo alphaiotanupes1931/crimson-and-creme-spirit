@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Play } from 'lucide-react';
+import { ChevronRight, Volume2, VolumeX, Instagram } from 'lucide-react';
 import { useState, useRef } from 'react';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
@@ -10,13 +10,26 @@ import brandonVideo from '@/assets/brandon-wylie.mp4';
 import rryAwardImg from '@/assets/rry-award.jpg';
 import noakesVideo from '@/assets/anthony-noakes-research.mp4';
 import enitanForbes from '@/assets/enitan-forbes.jpg';
+import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
+import mitreLogo from '@/assets/mitre-logo.png';
+import mediumLogo from '@/assets/medium-logo.png';
+import baltimoreTimesLogo from '@/assets/baltimore-times-logo.png';
 
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
-  const [webmasterVideoPlaying, setWebmasterVideoPlaying] = useState(false);
+  const featuredVideoRef = useRef<HTMLVideoElement>(null);
+  const [featuredMuted, setFeaturedMuted] = useState(true);
+
+  const toggleFeaturedSound = () => {
+    const v = featuredVideoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setFeaturedMuted(v.muted);
+    if (!v.muted) v.play().catch(() => {});
+  };
 
   return (
     <>
