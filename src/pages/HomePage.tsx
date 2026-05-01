@@ -392,7 +392,7 @@ export const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
             >
-              <div className="relative aspect-[9/16] max-h-[600px] mx-auto bg-background overflow-hidden">
+              <div className="relative aspect-[4/5] bg-background overflow-hidden">
                 <img
                   src={enitanForbes}
                   alt="Brother Oluwatomisin Enitan featured on Forbes 30 Under 30 cover"
