@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Volume2, VolumeX, Instagram } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { ChevronRight, Instagram } from 'lucide-react';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
@@ -20,16 +19,6 @@ export const HomePage = () => {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
-  const featuredVideoRef = useRef<HTMLVideoElement>(null);
-  const [featuredMuted, setFeaturedMuted] = useState(true);
-
-  const toggleFeaturedSound = () => {
-    const v = featuredVideoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setFeaturedMuted(v.muted);
-    if (!v.muted) v.play().catch(() => {});
-  };
 
   return (
     <>
