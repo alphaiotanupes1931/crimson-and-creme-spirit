@@ -171,38 +171,38 @@ export const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1 relative"
             >
-              <div className="relative">
-                <div className="relative aspect-video overflow-hidden rounded-lg">
-                  {!webmasterVideoPlaying ? (
-                    <div 
-                      className="relative w-full h-full cursor-pointer group"
-                      onClick={() => setWebmasterVideoPlaying(true)}
-                    >
-                      <img
-                        src="https://i.ibb.co/0jmcJDFB/Photo-on-1-7-26-at-8-29-PM.jpg"
-                        alt="Brother Terell Reed, Webmaster of Alpha Iota Chapter"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-20 h-20 rounded-full bg-cream/90 group-hover:bg-cream flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                          <Play className="w-8 h-8 text-background ml-1" fill="currentColor" />
-                        </div>
-                      </div>
+              <div className="relative max-w-sm mx-auto">
+                <div className="relative aspect-square overflow-hidden group">
+                  <img
+                    src={terellReedPhoto}
+                    alt="Brother Terell Reed, Webmaster of Alpha Iota Chapter"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  />
+                  {/* Faded edges blending into background */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Identity overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                    <div>
+                      <p className="font-display text-2xl text-cream leading-tight">Terell Reed</p>
+                      <p className="text-xs font-semibold text-cream/70 tracking-[0.2em]">8AI24FA</p>
                     </div>
-                  ) : (
-                    <iframe
-                      src="https://player.cloudinary.com/embed/?cloud_name=ddfe8uqth&public_id=Untitled_design_3_wxj9nb&profile=cld-default"
-                      className="w-full h-full"
-                      allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                      allowFullScreen
-                    />
-                  )}
+                    <p className="text-[10px] font-semibold text-cream/60 tracking-[0.2em] uppercase">Webmaster</p>
+                  </div>
                 </div>
-                <div className="absolute bottom-4 left-4">
-                  <p className="font-display text-4xl text-cream">2024-25</p>
-                  <p className="text-sm font-semibold text-cream/80">WEBMASTER</p>
+
+                {/* Featured-in logos */}
+                <div className="mt-6 pt-6 border-t border-border/50">
+                  <p className="text-[10px] font-semibold text-cream/70 tracking-[0.25em] uppercase text-center mb-4">
+                    Featured In
+                  </p>
+                  <div className="flex items-center justify-center gap-6 opacity-70">
+                    <img src={baltimoreTimesLogo} alt="Baltimore Times" className="h-6 w-auto object-contain brightness-0 invert" />
+                    <img src={mitreLogo} alt="MITRE" className="h-5 w-auto object-contain brightness-0 invert" />
+                    <img src={mediumLogo} alt="Medium" className="h-6 w-auto object-contain brightness-0 invert" />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -215,11 +215,11 @@ export const HomePage = () => {
               className="order-1 lg:order-2"
             >
               <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">Digital Excellence</span>
-              
+
               <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4">
                 WEBMASTER'S WELCOME
               </h2>
-              
+
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   Welcome to the digital home of Alpha Iota Chapter. As your Webmaster, I am honored to present a platform that showcases the rich history, ongoing achievements, and unwavering commitment to excellence that defines our brotherhood.
@@ -228,10 +228,10 @@ export const HomePage = () => {
                   This website serves as a bridge connecting our storied past with our promising future—a space where prospective members, alumni, and the Morgan State community can engage with the legacy we continue to build. Every pixel reflects our dedication to achievement in all fields of human endeavor.
                 </p>
               </div>
-              
+
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="font-display text-2xl text-cream">BROTHER TERELL REED</p>
-                <p className="text-muted-foreground">Webmaster, Alpha Iota Chapter</p>
+                <p className="text-muted-foreground">Webmaster, Alpha Iota Chapter · 8AI24FA</p>
               </div>
 
               <Button variant="outline" className="mt-6" asChild>
@@ -244,6 +244,53 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {/* Featured Video — autoplay muted, click to unmute */}
+      <section className="py-20 bg-background border-y border-border/40">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">A Word From The Chapter</span>
+            <h2 className="font-display text-4xl md:text-5xl text-foreground mt-3">
+              FEATURED <span className="text-gradient-cream">MESSAGE</span>
+            </h2>
+          </motion.div>
+
+          <div className="relative max-w-4xl mx-auto group">
+            <div className="relative aspect-video overflow-hidden rounded-lg border border-cream/10 shadow-2xl">
+              <iframe
+                src="https://player.cloudinary.com/embed/?cloud_name=ddfe8uqth&public_id=Untitled_design_3_wxj9nb&profile=cld-default&autoplay=true&muted=false"
+                className="w-full h-full"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <p className="text-center text-muted-foreground/70 text-xs mt-3 tracking-wider uppercase">
+              If audio doesn't start, tap the player to enable sound
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Most Recent Chapter Achievement */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Most Recent Chapter Achievement</span>
+            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-3 cream-underline pb-4 inline-block">
+              CHAPTER <span className="text-gradient-cream">EXCELLENCE</span>
+            </h2>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Ronald R. Young Award */}
       <section className="py-20 bg-card border-y border-border">
