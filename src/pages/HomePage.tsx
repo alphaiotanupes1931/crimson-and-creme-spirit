@@ -1,19 +1,18 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Instagram } from 'lucide-react';
+import { ChevronRight, Instagram, Crown } from 'lucide-react';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
+import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
 import rryAwardImg from '@/assets/rry-award.jpg';
 import noakesVideo from '@/assets/anthony-noakes-research.mp4';
+import noakesPoster from '@/assets/noakes-poster.jpg';
 import enitanForbes from '@/assets/enitan-forbes.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
-import mitreLogo from '@/assets/mitre-logo.png';
-import mediumLogo from '@/assets/medium-logo.png';
-import baltimoreTimesLogo from '@/assets/baltimore-times-logo.png';
-
+import royalElizabeth from '@/assets/royal-elizabeth.png';
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -22,52 +21,31 @@ export const HomePage = () => {
 
   return (
     <>
-      {/* Hero Section with Parallax Video */}
+      {/* Hero */}
       <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
-        {/* Video Background with Parallax */}
-        <motion.div 
-          className="absolute inset-0 z-0"
-          style={{ y: heroY }}
-        >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover scale-110"
-          >
+        <motion.div className="absolute inset-0 z-0" style={{ y: heroY }}>
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover scale-110">
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40 md:bg-gradient-to-r" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent md:via-transparent" />
         </motion.div>
 
-        {/* Content */}
-        <motion.div 
+        <motion.div
           className="relative z-10 container mx-auto px-4 sm:px-6 pt-20 md:pt-0"
           style={{ opacity: heroOpacity }}
         >
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase">Kappa Alpha Psi Fraternity, Inc.</span>
-
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase">
+                Kappa Alpha Psi Fraternity, Inc.
+              </span>
               <h1 className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-foreground leading-none mt-3 sm:mt-4 mb-2">
                 ALPHA<br />
                 <span className="text-gradient-cream">IOTA</span>
               </h1>
-              
-              <p className="text-cream/80 text-base sm:text-lg tracking-wider mb-1 sm:mb-2">
-                Chartered May 29, 1931
-              </p>
-              
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-light mb-6 sm:mb-8">
-                Morgan State University
-              </p>
-              
+              <p className="text-cream/80 text-base sm:text-lg tracking-wider mb-1 sm:mb-2">Chartered May 29, 1931</p>
+              <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 font-light mb-6 sm:mb-8">Morgan State University</p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button variant="hero" size="xl" asChild className="w-full sm:w-auto">
                   <Link to="/about">Discover Our Chapter</Link>
@@ -80,45 +58,75 @@ export const HomePage = () => {
           </div>
         </motion.div>
 
-        {/* Decorative Elements */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
+      {/* Royal Kourt Teaser */}
+      <section className="py-20 sm:py-24 bg-background border-b border-border/30">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden mx-auto w-full max-w-sm group">
+              <img
+                src={royalElizabeth}
+                alt="Alpha Iota Royal Kourt"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+            </div>
+
+            <div className="text-center md:text-left">
+              <span className="inline-flex items-center gap-2 text-cream/80 text-xs font-semibold tracking-[0.3em] uppercase">
+                <Crown className="w-3.5 h-3.5" /> New Royalty
+              </span>
+              <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
+                Alpha Iota Royal Kourt
+              </h2>
+              <p className="text-muted-foreground italic mb-8 max-w-md mx-auto md:mx-0">
+                Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
+              </p>
+              <Button variant="heroOutline" size="lg" asChild>
+                <Link to="/royal-kourt">
+                  Meet The Kourt <ChevronRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Polemarch Welcome */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-20 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">Message from Leadership</span>
-              
-              <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4">
-                POLEMARCH'S WELCOME
+              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">From Our Polemarch</span>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-4 mb-6">
+                A WELCOME FROM LEADERSHIP
               </h2>
-              
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Greetings and welcome to the official website of the Alpha Iota Chapter of Kappa Alpha Psi Fraternity, Inc. at Morgan State University.
+                  Welcome to the official home of the Alpha Iota Chapter of Kappa Alpha Psi Fraternity, Inc. at Morgan State University.
                 </p>
                 <p>
-                  Since our founding on May 29, 1931, we have been committed to upholding the values of achievement, training for leadership, and service to all humanity. Our brothers continue to exemplify excellence in scholarship, community service, and brotherhood.
+                  Since May 29, 1931, our brothers have lived the values of achievement, leadership, and service — and we are proud to continue that legacy today.
                 </p>
               </div>
-              
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="font-display text-2xl text-cream">BROTHER MARCUS MCCLEAN</p>
-                <p className="text-muted-foreground">Polemarch, Alpha Iota Chapter</p>
+                <p className="text-muted-foreground">Polemarch · Alpha Iota Chapter</p>
               </div>
-
-              <Button variant="outline" className="mt-6" asChild>
-                <Link to="/about">
-                  Learn More About Us <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
             </motion.div>
 
             <motion.div
@@ -128,37 +136,30 @@ export const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative">
-                <div className="relative aspect-[3/4] max-w-xs mx-auto overflow-hidden">
-                  <img
-                    src="https://tmcf.org/wp-content/uploads/news-story-image-marcus-mcclean-scaled.png"
-                    alt="Brother Marcus McClean, Polemarch of Alpha Iota Chapter"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
-                </div>
-                <div className="absolute bottom-4 right-4 text-right">
-                  <p className="text-sm font-semibold text-cream/80 tracking-wider uppercase">Current Polemarch</p>
-                  <p className="font-display text-lg text-cream">Marcus McClean</p>
-                  <p className="text-xs text-cream/60 tracking-wider">9AI24FA</p>
-                </div>
+              <div className="relative aspect-[3/4] max-w-xs mx-auto overflow-hidden">
+                <img
+                  src="https://tmcf.org/wp-content/uploads/news-story-image-marcus-mcclean-scaled.png"
+                  alt="Brother Marcus McClean, Polemarch of Alpha Iota Chapter"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Webmaster Welcome */}
-      <section className="py-24 bg-background/50">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Webmaster */}
+      <section className="py-20 sm:py-24 bg-background/50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1 relative"
+              className="order-2 lg:order-1"
             >
               <div className="relative max-w-sm mx-auto">
                 <div className="relative aspect-square overflow-hidden group">
@@ -167,12 +168,10 @@ export const HomePage = () => {
                     alt="Brother Terell Reed, Webmaster of Alpha Iota Chapter"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
-                  {/* Faded edges blending into background */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent pointer-events-none" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 pointer-events-none" />
                   <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Identity overlay */}
                   <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
                     <div>
                       <p className="font-display text-2xl text-cream leading-tight">Terell Reed</p>
@@ -182,17 +181,9 @@ export const HomePage = () => {
                   </div>
                 </div>
 
-                {/* Featured-in logos */}
-                <div className="mt-6 pt-6 border-t border-border/50">
-                  <p className="text-[10px] font-semibold text-cream/70 tracking-[0.25em] uppercase text-center mb-4">
-                    Featured In
-                  </p>
-                  <div className="flex items-center justify-center gap-6 opacity-70">
-                    <img src={baltimoreTimesLogo} alt="Baltimore Times" className="h-6 w-auto object-contain brightness-0 invert" />
-                    <img src={mitreLogo} alt="MITRE" className="h-5 w-auto object-contain brightness-0 invert" />
-                    <img src={mediumLogo} alt="Medium" className="h-6 w-auto object-contain brightness-0 invert" />
-                  </div>
-                </div>
+                <p className="text-center text-[11px] font-semibold text-cream/60 tracking-[0.25em] uppercase mt-6">
+                  Featured in Baltimore Times · MITRE · Medium
+                </p>
               </div>
             </motion.div>
 
@@ -203,87 +194,39 @@ export const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">Digital Excellence</span>
-
-              <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4">
-                WEBMASTER'S WELCOME
+              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">Digital Excellence</span>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-4 mb-6">
+                A NOTE FROM THE WEBMASTER
               </h2>
-
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Welcome to the digital home of Alpha Iota Chapter. As your Webmaster, I am honored to present a platform that showcases the rich history, ongoing achievements, and unwavering commitment to excellence that defines our brotherhood.
+                  Welcome to the digital home of Alpha Iota. This space showcases the rich history, ongoing achievements, and unwavering commitment to excellence that defines our brotherhood.
                 </p>
                 <p>
-                  This website serves as a bridge connecting our storied past with our promising future—a space where prospective members, alumni, and the Morgan State community can engage with the legacy we continue to build. Every pixel reflects our dedication to achievement in all fields of human endeavor.
+                  Every pixel reflects our dedication to achievement in every field of human endeavor.
                 </p>
               </div>
-
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="font-display text-2xl text-cream">BROTHER TERELL REED</p>
-                <p className="text-muted-foreground">Webmaster, Alpha Iota Chapter · 8AI24FA</p>
+                <p className="text-muted-foreground">Webmaster · 8AI24FA</p>
               </div>
-
-              <Button variant="outline" className="mt-6" asChild>
-                <Link to="/contact">
-                  Connect With Us <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Featured Video — autoplay muted, click to unmute */}
-      <section className="py-20 bg-background border-y border-border/40">
-        <div className="container mx-auto px-6">
+      {/* Most Recent Chapter Achievement — Ronald R. Young */}
+      <section className="py-20 sm:py-24 bg-card border-y border-border">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">A Word From The Chapter</span>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground mt-3">
-              FEATURED <span className="text-gradient-cream">MESSAGE</span>
-            </h2>
-          </motion.div>
-
-          <div className="relative max-w-4xl mx-auto group">
-            <div className="relative aspect-video overflow-hidden rounded-lg border border-cream/10 shadow-2xl">
-              <iframe
-                src="https://player.cloudinary.com/embed/?cloud_name=ddfe8uqth&public_id=Untitled_design_3_wxj9nb&profile=cld-default&autoplay=true&muted=false"
-                className="w-full h-full"
-                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <p className="text-center text-muted-foreground/70 text-xs mt-3 tracking-wider uppercase">
-              If audio doesn't start, tap the player to enable sound
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Most Recent Chapter Achievement */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="text-center mb-12"
           >
             <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Most Recent Chapter Achievement</span>
-            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-3 cream-underline pb-4 inline-block">
-              CHAPTER <span className="text-gradient-cream">EXCELLENCE</span>
-            </h2>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Ronald R. Young Award */}
-      <section className="py-20 bg-card border-y border-border">
-        <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -301,40 +244,35 @@ export const HomePage = () => {
 
             <div className="text-center lg:text-left">
               <span className="text-cream text-xs font-semibold tracking-[0.2em] uppercase">2026 Award Recipient</span>
-
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4 cream-underline pb-4">
+              <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
                 RONALD R. YOUNG<br />
                 <span className="text-gradient-cream">WEBSITE OF THE YEAR</span>
               </h2>
-
-              <p className="text-muted-foreground leading-relaxed max-w-xl">
-                The Alpha Iota Chapter is proud to be recognized as the 2026 recipient of the Ronald R. Young Website of the Year Award — a testament to our commitment to digital excellence and innovation within Kappa Alpha Psi Fraternity, Inc.
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Alpha Iota is proud to be recognized as the 2026 recipient of the Ronald R. Young Website of the Year Award — a testament to our commitment to digital excellence within Kappa Alpha Psi Fraternity, Inc.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Recent Achievements */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <div className="container mx-auto px-6">
+      {/* Recent Brother Achievements */}
+      <section className="py-20 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-14"
           >
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground cream-underline pb-4 inline-block">
+            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Brother Spotlights</span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-3">
               RECENT <span className="text-gradient-cream">ACHIEVEMENTS</span>
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg mt-6">
-              Celebrating the latest accomplishments of the brothers of Alpha Iota.
-            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Anthony Noakes — Research */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+            {/* Anthony Noakes */}
             <motion.article
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -342,38 +280,34 @@ export const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
             >
-              <div className="relative aspect-[4/5] bg-black overflow-hidden flex items-center justify-center">
+              <div className="relative aspect-video bg-black overflow-hidden">
                 <video
                   controls
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-contain"
+                  poster={noakesPoster}
+                  className="w-full h-full object-cover"
                 >
                   <source src={noakesVideo} type="video/mp4" />
                 </video>
               </div>
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">04 / 18 / 2026</span>
                   <span className="h-px flex-1 bg-border" />
                   <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Scholarship</span>
                 </div>
-                <h3 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-[1.05]">
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-3 leading-[1.05]">
                   A CURE TO <span className="text-gradient-cream">CANCER</span>
                 </h3>
-                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-2">
-                  89th Annual Intercollegiate Student Chemists Convention
-                </p>
-                <p className="text-foreground/90 font-semibold mb-4">
-                  Brother Anthony Noakes
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Brother Noakes presented his undergraduate research at Ursinus College, unveiling his work on <span className="text-foreground font-semibold italic">Neocaryaflavonoside A</span> — an acylated flavonoid triglucoside isolated from <span className="text-foreground italic">Neocarya macrophylla</span> with antiproliferative activity against triple-negative breast cancer cells. The presentation builds on his prior semester's research review, advancing scholarship in the fight against cancer.
+                <p className="text-foreground/90 font-semibold mb-3">Brother Anthony Noakes</p>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                  Presented his undergraduate research at Ursinus College's 89th Annual Intercollegiate Student Chemists Convention — a study of <span className="text-foreground italic">Neocaryaflavonoside A</span>, an acylated flavonoid triglucoside from <span className="text-foreground italic">Neocarya macrophylla</span>, with antiproliferative activity against triple-negative breast cancer cells.
                 </p>
               </div>
             </motion.article>
 
-            {/* Oluwatomisin Enitan — Forbes 30 Under 30 */}
+            {/* Enitan */}
             <motion.article
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -381,30 +315,25 @@ export const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
             >
-              <div className="relative aspect-[4/5] bg-background overflow-hidden">
+              <div className="relative aspect-video bg-background overflow-hidden">
                 <img
                   src={enitanForbes}
-                  alt="Brother Oluwatomisin Enitan featured on Forbes 30 Under 30 cover"
+                  alt="Brother Oluwatomisin Enitan featured on Forbes 30 Under 30"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">2026 Honoree</span>
                   <span className="h-px flex-1 bg-border" />
                   <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Recognition</span>
                 </div>
-                <h3 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-[1.05]">
+                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-3 leading-[1.05]">
                   FORBES <span className="text-gradient-cream">30 UNDER 30</span>
                 </h3>
-                <p className="text-cream/90 text-sm font-semibold tracking-wider uppercase mb-2">
-                  Science · Biotechnology Research
-                </p>
-                <p className="text-foreground/90 font-semibold mb-4">
-                  Brother Oluwatomisin Enitan
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Honored for a body of pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.
+                <p className="text-foreground/90 font-semibold mb-3">Brother Oluwatomisin Enitan</p>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                  Recognized for pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.
                 </p>
               </div>
             </motion.article>
@@ -412,23 +341,23 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Brandon Wylie */}
+      <section className="py-20 sm:py-24 bg-card">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
             >
-              <div className="relative aspect-[9/16] max-w-sm mx-auto bg-background border-4 border-cream/20 overflow-hidden rounded-lg">
+              <div className="relative aspect-[9/16] max-w-sm mx-auto bg-background overflow-hidden rounded-lg border border-border/40">
                 <video
                   controls
                   playsInline
                   preload="metadata"
+                  poster={brandonPoster}
                   className="w-full h-full object-cover"
-                  poster=""
                 >
                   <source src={brandonVideo} type="video/mp4" />
                 </video>
@@ -441,23 +370,16 @@ export const HomePage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">Fellow Achiever Spotlight</span>
-              
-              <h2 className="font-display text-5xl md:text-6xl text-foreground mt-4 mb-6 cream-underline pb-4">
+              <span className="text-cream text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">Fellow Achiever Spotlight</span>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-4 mb-4">
                 BROTHER BRANDON WYLIE
               </h2>
-
               <p className="text-cream font-semibold tracking-wider text-sm mb-4">2AI00FA</p>
-              
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Brother Brandon Wylie is a distinguished entrepreneur and proud member of the Alpha Iota Chapter. He serves as <span className="text-foreground font-semibold">President of Wylie Funeral Homes, P.A.</span>, and is the co-owner of <span className="text-foreground font-semibold">Fleurs d'Ave Floral Boutique</span> and the <span className="text-foreground font-semibold">Above It All Mental Health Program</span>.
-                </p>
-                <p>
-                  His dedication to service and achievement exemplifies the values of Kappa Alpha Psi Fraternity, Inc. — achievement in every field of human endeavor.
+                  Brother Brandon Wylie is a distinguished entrepreneur and proud Alpha Iota man. He serves as <span className="text-foreground font-semibold">President of Wylie Funeral Homes, P.A.</span>, and is the co-owner of <span className="text-foreground font-semibold">Fleurs d'Ave Floral Boutique</span> and the <span className="text-foreground font-semibold">Above It All Mental Health Program</span>.
                 </p>
               </div>
-              
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="font-display text-lg text-cream italic">
                   "Achievement in Every Field of Human Endeavor"
@@ -469,9 +391,9 @@ export const HomePage = () => {
       </section>
 
       {/* Image Grid */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-6">
+      <section className="py-20 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <Link to="/events">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -485,8 +407,8 @@ export const HomePage = () => {
                   className="w-full aspect-video object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="font-display text-3xl text-foreground">EVENTS</p>
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <p className="font-display text-2xl sm:text-3xl text-foreground">EVENTS</p>
                 </div>
               </motion.div>
             </Link>
@@ -501,12 +423,12 @@ export const HomePage = () => {
               >
                 <img
                   src={serviceImg}
-                  alt="Alpha Iota Chapter brothers volunteering at community food drive helping local families"
+                  alt="Alpha Iota Chapter brothers volunteering"
                   className="w-full aspect-video object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="font-display text-3xl text-foreground">SERVICE</p>
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <p className="font-display text-2xl sm:text-3xl text-foreground">SERVICE</p>
                 </div>
               </motion.div>
             </Link>
@@ -514,34 +436,32 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Instagram Feed */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
+      {/* Instagram */}
+      <section className="py-20 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
             <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Follow Along</span>
-            <h2 className="font-display text-4xl md:text-6xl text-foreground mt-3 cream-underline pb-4 inline-block">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-3">
               <span className="text-gradient-cream">@AINUPES1931</span>
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              The latest from the Nupes of Alpha Iota on Instagram.
-            </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-md sm:max-w-lg mx-auto">
             <div className="bg-card border border-border rounded-lg overflow-hidden">
               <iframe
                 src="https://www.instagram.com/ainupes1931/embed"
                 className="w-full"
-                style={{ height: '720px', border: 'none' }}
+                style={{ height: '640px', border: 'none' }}
                 scrolling="no"
+                title="Alpha Iota Instagram Feed"
               />
             </div>
-            <div className="text-center mt-8">
+            <div className="text-center mt-6">
               <Button variant="outline" asChild>
                 <a href="https://www.instagram.com/ainupes1931/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4" />
@@ -554,15 +474,11 @@ export const HomePage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-crimson relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-foreground/80 text-lg max-w-2xl mx-auto mb-8">
-              Learn more about membership opportunities and how you can become part of our legacy of excellence.
+      <section className="py-20 sm:py-24 bg-crimson relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <p className="text-foreground/90 text-base sm:text-lg max-w-2xl mx-auto mb-8">
+              Learn more about our chapter and the legacy we continue to build.
             </p>
             <Button variant="cream" size="xl" asChild>
               <Link to="/contact">Get in Touch</Link>
