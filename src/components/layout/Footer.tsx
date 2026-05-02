@@ -77,7 +77,7 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display text-lg text-foreground tracking-wider mb-6 cream-underline pb-4">QUICK LINKS</h3>
+            <h3 className="font-display text-lg text-foreground tracking-wider mb-6">QUICK LINKS</h3>
             <nav className="space-y-3">
               {quickLinks.map((link) => (
                 <Link
@@ -93,7 +93,7 @@ export const Footer = () => {
 
           {/* External Links */}
           <div>
-            <h3 className="font-display text-lg text-foreground tracking-wider mb-6 cream-underline pb-4">RESOURCES</h3>
+            <h3 className="font-display text-lg text-foreground tracking-wider mb-6">RESOURCES</h3>
             <nav className="space-y-3">
               {externalLinks.map((link) => (
                 <a
@@ -112,7 +112,7 @@ export const Footer = () => {
 
           {/* Contact - No Icons */}
           <div>
-            <h3 className="font-display text-lg text-foreground tracking-wider mb-6 cream-underline pb-4">CONTACT</h3>
+            <h3 className="font-display text-lg text-foreground tracking-wider mb-6">CONTACT</h3>
             <div className="space-y-4">
               <div>
                 <p className="text-sm text-muted-foreground">

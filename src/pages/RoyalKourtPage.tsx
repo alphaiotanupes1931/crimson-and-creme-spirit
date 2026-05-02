@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Instagram } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import elizabeth from '@/assets/royal-elizabeth.png';
 import kaiya from '@/assets/royal-kaiya.png';
 import sage from '@/assets/royal-sage.png';
@@ -6,11 +8,11 @@ import kalise from '@/assets/royal-kalise.png';
 import anaya from '@/assets/royal-anaya.png';
 
 const court = [
-  { name: 'Elizabeth H. Stewart', title: 'Miss Krimson & Kreme', image: elizabeth },
-  { name: 'Kaiya A. Harris', title: 'Miss 1911', image: kaiya },
-  { name: 'Sage Ndidi–Amaka Ufoh', title: 'Miss Kongeniality', image: sage },
-  { name: 'Kalise N. Graham', title: 'Miss Kappa Alpha Psi', image: kalise },
-  { name: 'Anaya I. Swiggett', title: 'Miss Alpha Iota', image: anaya },
+  { name: 'Kalise Graham', title: 'Miss Kappa Alpha Psi', handle: 'kaliseeeee_', image: kalise },
+  { name: 'Anaya Swiggett', title: 'Miss Alpha Iota', handle: 'ana.yaimani', image: anaya },
+  { name: 'Elizabeth Stewart', title: 'Miss Krimson & Kream', handle: 'elizabethh.hope__', image: elizabeth },
+  { name: 'Kaiya Harris', title: 'Miss 1911', handle: '_.kaiyya', image: kaiya },
+  { name: 'Sage Ufoh', title: 'Miss Kongeniality', handle: '_sa9e._', image: sage },
 ];
 
 export const RoyalKourtPage = () => {
@@ -32,7 +34,7 @@ export const RoyalKourtPage = () => {
             transition={{ delay: 0.1 }}
             className="font-cursive text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-tight"
           >
-            The Royal Kourt
+            Current Royal Kourt
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -74,12 +76,63 @@ export const RoyalKourtPage = () => {
                   <p className="font-cursive text-3xl sm:text-4xl text-cream leading-tight">
                     {member.title}
                   </p>
-                  <p className="font-display text-lg sm:text-xl text-foreground tracking-wider mt-2">
+                  <p className="font-display text-base sm:text-lg text-foreground tracking-wider mt-2">
                     {member.name}
                   </p>
+                  <a
+                    href={`https://www.instagram.com/${member.handle}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-2 text-xs text-muted-foreground hover:text-cream transition-colors"
+                  >
+                    <Instagram className="w-3 h-3" />@{member.handle}
+                  </a>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram Embed */}
+      <section className="py-16 sm:py-20 bg-card border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
+              Follow The Kourt
+            </span>
+            <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-3">
+              @ainupes.royalcourt
+            </h2>
+          </motion.div>
+
+          <div className="max-w-md sm:max-w-lg mx-auto">
+            <div className="bg-background border border-border rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.instagram.com/ainupes.royalcourt/embed"
+                className="w-full"
+                style={{ height: '640px', border: 'none' }}
+                scrolling="no"
+                title="Royal Kourt Instagram Feed"
+              />
+            </div>
+            <div className="text-center mt-6">
+              <Button variant="outline" asChild>
+                <a
+                  href="https://www.instagram.com/ainupes.royalcourt/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Follow @ainupes.royalcourt
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

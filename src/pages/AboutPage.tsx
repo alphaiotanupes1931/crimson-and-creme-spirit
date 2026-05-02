@@ -73,7 +73,7 @@ export const AboutPage = () => {
             >
               <span className="text-cream text-sm font-semibold tracking-[0.2em] uppercase">National Organization</span>
               
-              <h2 className="font-display text-5xl text-foreground mt-4 mb-6 cream-underline pb-4">
+              <h2 className="font-display text-5xl text-foreground mt-4 mb-6">
                 KAPPA ALPHA PSI
               </h2>
               

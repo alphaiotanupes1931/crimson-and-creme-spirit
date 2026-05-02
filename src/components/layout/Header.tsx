@@ -22,6 +22,7 @@ const navItems = [
       { name: 'Active Brothers', href: '/brothers#active' },
       { name: 'Recent Graduates', href: '/graduates' },
       { name: 'Royal Kourt', href: '/royal-kourt' },
+      { name: 'Awards', href: '/awards' },
       { name: 'Journal', href: '/journal' },
       { name: 'Lineage', href: '/lineage' },
       

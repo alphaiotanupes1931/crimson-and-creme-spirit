@@ -7,10 +7,6 @@ import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
-import rryAwardImg from '@/assets/rry-award.jpg';
-import noakesVideo from '@/assets/anthony-noakes-research.mp4';
-import noakesPoster from '@/assets/noakes-poster.jpg';
-import enitanForbes from '@/assets/enitan-forbes.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
 import royalElizabeth from '@/assets/royal-elizabeth.png';
 
@@ -59,46 +55,6 @@ export const HomePage = () => {
         </motion.div>
 
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
-      </section>
-
-      {/* Royal Kourt Teaser */}
-      <section className="py-20 sm:py-24 bg-background border-b border-border/30">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden mx-auto w-full max-w-sm group">
-              <img
-                src={royalElizabeth}
-                alt="Alpha Iota Royal Kourt"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
-            </div>
-
-            <div className="text-center md:text-left">
-              <span className="inline-flex items-center gap-2 text-cream/80 text-xs font-semibold tracking-[0.3em] uppercase">
-                <Crown className="w-3.5 h-3.5" /> New Royalty
-              </span>
-              <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
-                Alpha Iota Royal Kourt
-              </h2>
-              <p className="text-muted-foreground italic mb-8 max-w-md mx-auto md:mx-0">
-                Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
-              </p>
-              <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/royal-kourt">
-                  Meet The Kourt <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
       </section>
 
       {/* Polemarch Welcome */}
@@ -215,132 +171,6 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Most Recent Chapter Achievement — Ronald R. Young */}
-      <section className="py-20 sm:py-24 bg-card border-y border-border">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Most Recent Chapter Achievement</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
-          >
-            <div className="relative overflow-hidden mx-auto max-w-lg w-full">
-              <img
-                src={rryAwardImg}
-                alt="Alpha Iota Chapter receiving the 2026 Ronald R. Young Website of the Year Award"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-
-            <div className="text-center lg:text-left">
-              <span className="text-cream text-xs font-semibold tracking-[0.2em] uppercase">2026 Award Recipient</span>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mt-4 mb-6">
-                RONALD R. YOUNG<br />
-                <span className="text-gradient-cream">WEBSITE OF THE YEAR</span>
-              </h2>
-              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Alpha Iota is proud to be recognized as the 2026 recipient of the Ronald R. Young Website of the Year Award — a testament to our commitment to digital excellence within Kappa Alpha Psi Fraternity, Inc.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Recent Brother Achievements */}
-      <section className="py-20 sm:py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-14"
-          >
-            <span className="text-cream text-xs font-semibold tracking-[0.3em] uppercase">Brother Spotlights</span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-foreground mt-3">
-              RECENT <span className="text-gradient-cream">ACHIEVEMENTS</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Anthony Noakes */}
-            <motion.article
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
-            >
-              <div className="relative aspect-video bg-black overflow-hidden">
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={noakesPoster}
-                  className="w-full h-full object-cover"
-                >
-                  <source src={noakesVideo} type="video/mp4" />
-                </video>
-              </div>
-              <div className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">04 / 18 / 2026</span>
-                  <span className="h-px flex-1 bg-border" />
-                  <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Scholarship</span>
-                </div>
-                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-3 leading-[1.05]">
-                  A CURE TO <span className="text-gradient-cream">CANCER</span>
-                </h3>
-                <p className="text-foreground/90 font-semibold mb-3">Brother Anthony Noakes</p>
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Presented his undergraduate research at Ursinus College's 89th Annual Intercollegiate Student Chemists Convention — a study of <span className="text-foreground italic">Neocaryaflavonoside A</span>, an acylated flavonoid triglucoside from <span className="text-foreground italic">Neocarya macrophylla</span>, with antiproliferative activity against triple-negative breast cancer cells.
-                </p>
-              </div>
-            </motion.article>
-
-            {/* Enitan */}
-            <motion.article
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-cream/40 transition-all duration-500"
-            >
-              <div className="relative aspect-video bg-background overflow-hidden">
-                <img
-                  src={enitanForbes}
-                  alt="Brother Oluwatomisin Enitan featured on Forbes 30 Under 30"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-semibold text-crimson tracking-[0.2em] uppercase">2026 Honoree</span>
-                  <span className="h-px flex-1 bg-border" />
-                  <span className="text-xs font-semibold text-cream tracking-[0.2em] uppercase">Recognition</span>
-                </div>
-                <h3 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground mb-3 leading-[1.05]">
-                  FORBES <span className="text-gradient-cream">30 UNDER 30</span>
-                </h3>
-                <p className="text-foreground/90 font-semibold mb-3">Brother Oluwatomisin Enitan</p>
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  Recognized for pioneering work in plant biotechnology, cyanobacterial bioenergy, and crop transformation — research advancing sustainable biofuels, halotolerant agriculture, and the future of green industrial science.
-                </p>
-              </div>
-            </motion.article>
-          </div>
-        </div>
-      </section>
-
       {/* Brandon Wylie */}
       <section className="py-20 sm:py-24 bg-card">
         <div className="container mx-auto px-4 sm:px-6">
@@ -433,6 +263,46 @@ export const HomePage = () => {
               </motion.div>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Royal Kourt Teaser */}
+      <section className="py-20 sm:py-24 bg-card border-y border-border">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden mx-auto w-full max-w-sm group">
+              <img
+                src={royalElizabeth}
+                alt="Alpha Iota Royal Kourt"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-card/40 via-transparent to-card/40" />
+            </div>
+
+            <div className="text-center md:text-left">
+              <span className="inline-flex items-center gap-2 text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
+                <Crown className="w-3.5 h-3.5" /> The Court
+              </span>
+              <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
+                Current Royal Kourt
+              </h2>
+              <p className="text-muted-foreground italic mb-8 max-w-md mx-auto md:mx-0">
+                Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
+              </p>
+              <Button variant="heroOutline" size="lg" asChild>
+                <Link to="/royal-kourt">
+                  Meet The Kourt <ChevronRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
