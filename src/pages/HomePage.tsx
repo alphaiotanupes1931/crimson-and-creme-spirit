@@ -61,46 +61,6 @@ export const HomePage = () => {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
       </section>
 
-      {/* Royal Kourt Teaser */}
-      <section className="py-20 sm:py-24 bg-background border-b border-border/30">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden mx-auto w-full max-w-sm group">
-              <img
-                src={royalElizabeth}
-                alt="Alpha Iota Royal Kourt"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
-            </div>
-
-            <div className="text-center md:text-left">
-              <span className="inline-flex items-center gap-2 text-cream/80 text-xs font-semibold tracking-[0.3em] uppercase">
-                <Crown className="w-3.5 h-3.5" /> New Royalty
-              </span>
-              <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
-                Alpha Iota Royal Kourt
-              </h2>
-              <p className="text-muted-foreground italic mb-8 max-w-md mx-auto md:mx-0">
-                Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
-              </p>
-              <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/royal-kourt">
-                  Meet The Kourt <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Polemarch Welcome */}
       <section className="py-20 sm:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
