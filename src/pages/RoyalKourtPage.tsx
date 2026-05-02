@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Instagram } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import elizabeth from '@/assets/royal-elizabeth.png';
 import kaiya from '@/assets/royal-kaiya.png';
 import sage from '@/assets/royal-sage.png';
@@ -6,11 +8,11 @@ import kalise from '@/assets/royal-kalise.png';
 import anaya from '@/assets/royal-anaya.png';
 
 const court = [
-  { name: 'Elizabeth H. Stewart', title: 'Miss Krimson & Kreme', image: elizabeth },
-  { name: 'Kaiya A. Harris', title: 'Miss 1911', image: kaiya },
-  { name: 'Sage Ndidi–Amaka Ufoh', title: 'Miss Kongeniality', image: sage },
-  { name: 'Kalise N. Graham', title: 'Miss Kappa Alpha Psi', image: kalise },
-  { name: 'Anaya I. Swiggett', title: 'Miss Alpha Iota', image: anaya },
+  { name: 'Kalise Graham', title: 'Miss Kappa Alpha Psi', handle: 'kaliseeeee_', image: kalise },
+  { name: 'Anaya Swiggett', title: 'Miss Alpha Iota', handle: 'ana.yaimani', image: anaya },
+  { name: 'Elizabeth Stewart', title: 'Miss Krimson & Kream', handle: 'elizabethh.hope__', image: elizabeth },
+  { name: 'Kaiya Harris', title: 'Miss 1911', handle: '_.kaiyya', image: kaiya },
+  { name: 'Sage Ufoh', title: 'Miss Kongeniality', handle: '_sa9e._', image: sage },
 ];
 
 export const RoyalKourtPage = () => {
