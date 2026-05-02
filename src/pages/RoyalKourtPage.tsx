@@ -34,7 +34,7 @@ export const RoyalKourtPage = () => {
             transition={{ delay: 0.1 }}
             className="font-cursive text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-tight"
           >
-            The Royal Kourt
+            Current Royal Kourt
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
