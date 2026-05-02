@@ -105,21 +105,6 @@
     background: hsl(var(--crimson-dark));
   }
 
-  /* Cream underline */
-  .cream-underline {
-    position: relative;
-  }
-  
-  .cream-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: hsl(var(--cream));
-  }
-
   /* Border accent */
   .border-accent-left {
     border-left: 4px solid hsl(var(--cream));
