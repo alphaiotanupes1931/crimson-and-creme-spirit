@@ -7,10 +7,6 @@ import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
-import rryAwardImg from '@/assets/rry-award.jpg';
-import noakesVideo from '@/assets/anthony-noakes-research.mp4';
-import noakesPoster from '@/assets/noakes-poster.jpg';
-import enitanForbes from '@/assets/enitan-forbes.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
 import royalElizabeth from '@/assets/royal-elizabeth.png';
 
