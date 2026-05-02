@@ -273,7 +273,7 @@ export const ChapterPortalPage = () => {
           <div className="space-y-12">
             {grouped.map((semester) => (
               <motion.div key={semester.key} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                <h2 className="font-display text-2xl text-cream mb-4 cream-underline pb-3">{semester.label}</h2>
+                <h2 className="font-display text-2xl text-cream mb-4">{semester.label}</h2>
                 <div className="grid gap-2">
                   {semester.brothers.map((brother) => (
                     <div key={brother.id} className="flex items-center justify-between py-3 px-4 bg-card border border-border hover:border-cream/30 transition-colors">

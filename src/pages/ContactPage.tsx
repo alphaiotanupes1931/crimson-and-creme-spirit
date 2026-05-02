@@ -99,7 +99,7 @@ export const ContactPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-4xl text-foreground mb-8 cream-underline pb-4">SEND A MESSAGE</h2>
+              <h2 className="font-display text-4xl text-foreground mb-8">SEND A MESSAGE</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
