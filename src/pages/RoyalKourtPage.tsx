@@ -76,12 +76,63 @@ export const RoyalKourtPage = () => {
                   <p className="font-cursive text-3xl sm:text-4xl text-cream leading-tight">
                     {member.title}
                   </p>
-                  <p className="font-display text-lg sm:text-xl text-foreground tracking-wider mt-2">
+                  <p className="font-display text-base sm:text-lg text-foreground tracking-wider mt-2">
                     {member.name}
                   </p>
+                  <a
+                    href={`https://www.instagram.com/${member.handle}/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-2 text-xs text-muted-foreground hover:text-cream transition-colors"
+                  >
+                    <Instagram className="w-3 h-3" />@{member.handle}
+                  </a>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram Embed */}
+      <section className="py-16 sm:py-20 bg-card border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
+              Follow The Kourt
+            </span>
+            <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-3">
+              @ainupes.royalcourt
+            </h2>
+          </motion.div>
+
+          <div className="max-w-md sm:max-w-lg mx-auto">
+            <div className="bg-background border border-border rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.instagram.com/ainupes.royalcourt/embed"
+                className="w-full"
+                style={{ height: '640px', border: 'none' }}
+                scrolling="no"
+                title="Royal Kourt Instagram Feed"
+              />
+            </div>
+            <div className="text-center mt-6">
+              <Button variant="outline" asChild>
+                <a
+                  href="https://www.instagram.com/ainupes.royalcourt/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-4 h-4" />
+                  Follow @ainupes.royalcourt
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
