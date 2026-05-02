@@ -17,6 +17,7 @@ import { EventsPage } from "./pages/EventsPage";
 import { RecentGraduatesPage } from "./pages/RecentGraduatesPage";
 import { ChapterPortalPage } from "./pages/ChapterPortalPage";
 import { RoyalKourtPage } from "./pages/RoyalKourtPage";
+import { AwardsPage } from "./pages/AwardsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
