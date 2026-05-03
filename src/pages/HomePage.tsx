@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Instagram, Crown } from 'lucide-react';
+import { ChevronRight, Instagram } from 'lucide-react';
 import eventsImg from '@/assets/events-new.jpg';
 import serviceImg from '@/assets/service-new.jpg';
 import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
-import royalElizabeth from '@/assets/royal-elizabeth.png';
+
 
 export const HomePage = () => {
   const { scrollY } = useScroll();
@@ -122,7 +122,7 @@ export const HomePage = () => {
                   <img
                     src={terellReedPhoto}
                     alt="Brother Terell Reed, Webmaster of Alpha Iota Chapter"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent pointer-events-none" />
                   <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 pointer-events-none" />
@@ -140,6 +140,13 @@ export const HomePage = () => {
                 <p className="text-center text-[11px] font-semibold text-cream/60 tracking-[0.25em] uppercase mt-6">
                   Featured in Baltimore Times · MITRE · Medium
                 </p>
+                <div className="text-center mt-5">
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="https://terellreed.com" target="_blank" rel="noopener noreferrer">
+                      Learn More <ChevronRight className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </motion.div>
 
@@ -274,34 +281,22 @@ export const HomePage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto"
+            className="text-center max-w-2xl mx-auto"
           >
-            <div className="relative aspect-[4/5] overflow-hidden mx-auto w-full max-w-sm group">
-              <img
-                src={royalElizabeth}
-                alt="Alpha Iota Royal Kourt"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-card via-card/40 to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-card/40 via-transparent to-card/40" />
-            </div>
-
-            <div className="text-center md:text-left">
-              <span className="inline-flex items-center gap-2 text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
-                <Crown className="w-3.5 h-3.5" /> The Court
-              </span>
-              <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
-                Current Royal Kourt
-              </h2>
-              <p className="text-muted-foreground italic mb-8 max-w-md mx-auto md:mx-0">
-                Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
-              </p>
-              <Button variant="heroOutline" size="lg" asChild>
-                <Link to="/royal-kourt">
-                  Meet The Kourt <ChevronRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
+            <span className="text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
+              The Court
+            </span>
+            <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
+              Current Royal Kourt
+            </h2>
+            <p className="text-muted-foreground italic mb-8 max-w-md mx-auto">
+              Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
+            </p>
+            <Button variant="heroOutline" size="lg" asChild>
+              <Link to="/royal-kourt">
+                Meet The Kourt <ChevronRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>

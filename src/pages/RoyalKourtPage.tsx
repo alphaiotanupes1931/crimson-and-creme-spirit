@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import groupPhoto from '@/assets/royal-kourt-group.jpg';
 import elizabeth from '@/assets/royal-elizabeth.png';
 import kaiya from '@/assets/royal-kaiya.png';
 import sage from '@/assets/royal-sage.png';
@@ -19,12 +20,12 @@ export const RoyalKourtPage = () => {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <section className="relative pt-32 pb-12 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-14">
         <div className="container mx-auto px-6 text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-cream/70 tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-6"
+            className="text-cream/70 tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-5"
           >
             Alpha Iota Chapter Presents
           </motion.p>
@@ -32,17 +33,47 @@ export const RoyalKourtPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-cursive text-7xl sm:text-8xl md:text-9xl text-cream leading-[0.9]"
+            className="font-cursive text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-[0.9]"
           >
-            Current Royal Kourt
+            The Royal Kourt
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25 }}
+            className="text-muted-foreground italic mt-5 max-w-xl mx-auto text-sm sm:text-base"
+          >
+            2026–2027 · Crowned April 21, 2026
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Group Photo */}
+      <section className="pb-20 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative max-w-5xl mx-auto overflow-hidden"
+          >
+            <img
+              src={groupPhoto}
+              alt="The 2026–2027 Royal Kourt of the Alpha Iota Chapter"
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-transparent" />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/50 via-transparent to-background/50" />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/30 via-transparent to-transparent" />
+          </motion.div>
         </div>
       </section>
 
       {/* Court Members */}
       <section className="pb-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 max-w-6xl mx-auto">
             {court.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -50,17 +81,16 @@ export const RoyalKourtPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group text-center"
+                className="text-center"
               >
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={member.image}
                     alt={`${member.name}, ${member.title}`}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/30 to-transparent" />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/50 via-transparent to-background/50" />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/30 via-transparent to-transparent" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
                 </div>
                 <div className="mt-6 px-2">
                   <p className="font-cursive text-3xl sm:text-4xl text-cream leading-tight">
