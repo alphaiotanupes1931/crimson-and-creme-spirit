@@ -22,17 +22,9 @@ export const RoyalKourtPage = () => {
       {/* Hero */}
       <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-14">
         <div className="container mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-cream/70 tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-5"
-          >
-            Alpha Iota Chapter Presents
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
             className="font-cursive text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-[0.9]"
           >
             The Royal Kourt
@@ -40,10 +32,10 @@ export const RoyalKourtPage = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.25 }}
-            className="text-muted-foreground italic mt-5 max-w-xl mx-auto text-sm sm:text-base"
+            transition={{ delay: 0.2 }}
+            className="font-display font-bold tracking-[0.3em] text-cream/90 mt-6 text-sm sm:text-base"
           >
-            2026–2027 · Crowned April 21, 2026
+            2026 — 2027
           </motion.p>
         </div>
       </section>
@@ -83,14 +75,19 @@ export const RoyalKourtPage = () => {
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className="text-center"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden bg-background">
                   <img
                     src={member.image}
                     alt={`${member.name}, ${member.title}`}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    style={{
+                      WebkitMaskImage:
+                        'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                      maskImage:
+                        'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                    }}
                   />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
                 </div>
                 <div className="mt-6 px-2">
                   <p className="font-cursive text-3xl sm:text-4xl text-cream leading-tight">
