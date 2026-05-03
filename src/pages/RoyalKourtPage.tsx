@@ -22,17 +22,9 @@ export const RoyalKourtPage = () => {
       {/* Hero */}
       <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-14">
         <div className="container mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-cream/70 tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-5"
-          >
-            Alpha Iota Chapter Presents
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
             className="font-cursive text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-[0.9]"
           >
             The Royal Kourt
@@ -40,10 +32,10 @@ export const RoyalKourtPage = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.25 }}
-            className="text-muted-foreground italic mt-5 max-w-xl mx-auto text-sm sm:text-base"
+            transition={{ delay: 0.2 }}
+            className="font-display font-bold tracking-[0.3em] text-cream/90 mt-6 text-sm sm:text-base"
           >
-            2026–2027 · Crowned April 21, 2026
+            2026 — 2027
           </motion.p>
         </div>
       </section>
