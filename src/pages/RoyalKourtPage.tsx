@@ -75,14 +75,19 @@ export const RoyalKourtPage = () => {
                 transition={{ duration: 0.6, delay: i * 0.08 }}
                 className="text-center"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden bg-background">
                   <img
                     src={member.image}
                     alt={`${member.name}, ${member.title}`}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    style={{
+                      WebkitMaskImage:
+                        'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                      maskImage:
+                        'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                    }}
                   />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background/40 via-transparent to-background/40" />
                 </div>
                 <div className="mt-6 px-2">
                   <p className="font-cursive text-3xl sm:text-4xl text-cream leading-tight">
