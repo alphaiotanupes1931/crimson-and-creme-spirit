@@ -81,6 +81,7 @@ export const HomePage = () => {
               </div>
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="font-display text-2xl text-cream">BROTHER MARCUS MCCLEAN</p>
+                <p className="text-cream/70 text-sm font-semibold tracking-[0.2em]">9AI24FA</p>
                 <p className="text-muted-foreground">Polemarch · Alpha Iota Chapter</p>
               </div>
             </motion.div>
@@ -137,10 +138,7 @@ export const HomePage = () => {
                   </div>
                 </div>
 
-                <p className="text-center text-[11px] font-semibold text-cream/60 tracking-[0.25em] uppercase mt-6">
-                  Featured in Baltimore Times · MITRE · Medium
-                </p>
-                <div className="text-center mt-5">
+                <div className="text-center mt-6">
                   <Button variant="outline" size="sm" asChild>
                     <a href="https://terellreed.com" target="_blank" rel="noopener noreferrer">
                       Learn More <ChevronRight className="w-4 h-4" />
@@ -284,7 +282,7 @@ export const HomePage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <span className="text-cream/80 text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase">
-              The Court
+              What's New?
             </span>
             <h2 className="font-cursive text-5xl sm:text-6xl md:text-7xl text-cream mt-4 mb-4 leading-tight">
               Current Royal Kourt
