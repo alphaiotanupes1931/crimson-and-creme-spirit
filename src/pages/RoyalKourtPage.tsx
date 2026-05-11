@@ -37,6 +37,14 @@ export const RoyalKourtPage = () => {
           >
             2026 — 2027
           </motion.p>
+          <motion.blockquote
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-8 max-w-2xl mx-auto text-cream/70 font-body text-base sm:text-lg italic leading-relaxed"
+          >
+            &ldquo;Our five beloved women of Alpha Iota — grace, strength, and beauty we cherish beyond measure. They are the heart of our chapter, inspiring us all through their presence, dedication, and unwavering spirit.&rdquo;
+          </motion.blockquote>
         </div>
       </section>
 
