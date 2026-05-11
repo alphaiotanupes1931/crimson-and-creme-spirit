@@ -22,7 +22,7 @@ const journalEntries = [
     category: "Recognition"
   },
   {
-    title: "Brother Ronald Godman Performs for Ariana Fletcher",
+    title: "Ronald Goodman Performs for Ariana Fletcher",
     date: "February 2025",
     image: ronaldGodman,
     excerpt: "Alpha Iota Chapter proudly celebrates Brother Ronald L. Goodman's private saxophone performance for Ariana Fletcher during a surprise Valentine's Day dinner, showcasing his artistry on a national stage.",

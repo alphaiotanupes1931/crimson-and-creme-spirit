@@ -5,15 +5,12 @@ import { Search } from 'lucide-react';
 import brothersHeader from '@/assets/brothers-header.jpg';
 import alphaIotaLogo from '@/assets/alpha-iota-logo.png';
 
-// Founding brothers at Morgan State College in 1927
+// Founding brothers at Morgan State College in 1931
 const foundingBrothers = [
   { name: "Charles Law" },
   { name: "Robert \"Cliff\" Tarter"},
-  { name: "Kenneth Broom", chapter: "" },
   { name: "Howard \"Jack\" Spencer", chapter: "" },
   { name: "Thomas \"Rapp\" Wheatley" },
-  { name: "Henry Joyce", chapter: "" },
-  { name: "Randolph Jefferson", chapter: "" },
 ];
 
 const charterMembers = [
@@ -200,8 +197,8 @@ export const LineagePage = () => {
             
             <div className="space-y-6 text-foreground/80 text-lg leading-relaxed">
               <p>
-                The campus of Morgan State College in 1927 was a rich environment for academic excellence. 
-                The college existed of a robust student body which included men of Kappa Alpha Psi fraternity 
+                The campus of Morgan State College in 1931 was a rich environment for academic excellence.
+                The college existed of a robust student body which included men of Kappa Alpha Psi fraternity
                 from other chapters.
               </p>
               
