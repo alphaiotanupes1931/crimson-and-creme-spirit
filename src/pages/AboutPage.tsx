@@ -4,17 +4,16 @@ import aboutHeader from '@/assets/about-header.jpg';
 import KAPsiCrest from './assets/KAPsiCrest1.png';
 
 const founders = [
-  { name: "Elder Watson Diggs", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/diggs.jpg" },
-  { name: "Byron Kenneth Armstrong", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/ByronKArmstrong5.jpg" },
-  { name: "John Milton Lee", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Lee-1.jpg" },
-  { name: "Henry Tourner Asher", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBewWiB-4GaJnsM3jwYZOJ4jJ62gziPracOArjWeKjSGKjiQgswi6rGhrg_6tGjJ3DRpL6&s" },
-  { name: "Marcus Peter Blakemore", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1uHqx3IEfAIrtjoeu3cVxlk3QMf0BcBpthr3j7ABiSyiTjw5s6MjKvW7kcMEZope2kc4&s" },
-  { name: "Paul Waymond Caine", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Caine-1.jpg" },
-  { name: "George Wesley Edmonds", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Edmonds-1.jpg" },
-  { name: "Ezra Dee Alexander", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Alexander-1.jpg" },
+  { name: "Elder Watson Diggs (\"The Dreamer\")", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/diggs.jpg" },
+  { name: "Byron K. Armstrong", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/ByronKArmstrong5.jpg" },
+  { name: "Ezra D. Alexander", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Alexander-1.jpg" },
+  { name: "Henry T. Asher", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBewWiB-4GaJnsM3jwYZOJ4jJ62gziPracOArjWeKjSGKjiQgswi6rGhrg_6tGjJ3DRpL6&s" },
+  { name: "Marcus P. Blakemore", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1uHqx3IEfAIrtjoeu3cVxlk3QMf0BcBpthr3j7ABiSyiTjw5s6MjKvW7kcMEZope2kc4&s" },
+  { name: "Paul W. Caine", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Caine-1.jpg" },
+  { name: "George W. Edmonds", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Edmonds-1.jpg" },
   { name: "Guy Levis Grant", image: "https://kapsinep.org/wp-content/uploads/2024/05/guy_l_grant-2.png.webp" },
-  { name: "Edward Giles Irvin", image: "https://kapsinep.org/wp-content/uploads/2024/05/edward_g_irving.png.webp" },
-  
+  { name: "Edward G. Irvin", image: "https://kapsinep.org/wp-content/uploads/2024/05/edward_g_irving.png.webp" },
+  { name: "John Milton Lee", image: "https://www.kappaalphapsi1911.com/wp-content/uploads/2023/09/Lee-1.jpg" },
 ];
 
 const objectives = [
@@ -82,7 +81,7 @@ export const AboutPage = () => {
                   Kappa Alpha Psi Fraternity, Inc. (ΚΑΨ) is a collegiate Greek-letter fraternity founded on January 5, 1911, at Indiana University in Bloomington, Indiana.
                 </p>
                 <p>
-                  The fraternity was founded by Elder Watson Diggs, Byron Kenneth Armstrong, Henry T. Asher, Marcus Peter Blakemore, Paul Waymond Caine, George Wesley Edmonds, Ezra D. Alexander, Guy Levis Grant, Edward G. Irvin, and Sergeant S. Gruder.
+                  The fraternity was founded by Elder Watson Diggs ("The Dreamer"), Byron K. Armstrong, Ezra D. Alexander, Henry T. Asher, Marcus P. Blakemore, Paul W. Caine, George W. Edmonds, Guy Levis Grant, Edward G. Irvin, and John Milton Lee.
                 </p>
                 <p>
                   Today, the organization has over 160,000 members with 700+ undergraduate and alumni chapters in every state of the United States and international chapters across the globe.
