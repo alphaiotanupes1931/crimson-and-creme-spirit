@@ -9,7 +9,7 @@ import ronaldGodman from '@/assets/ronald-godman.jpg';
 
 const journalEntries = [
   {
-    name: "Brother Ronald Godman",
+    name: "Ronald Goodman",
     title: "Saxophone Performance for Ariana Fletcher",
     description: "Performed a private saxophone serenade for Ariana Fletcher during a surprise Valentine's Day dinner curated by Jalysa Scales.",
     image: ronaldGodman,

@@ -288,7 +288,7 @@ export const HomePage = () => {
               Current Royal Kourt
             </h2>
             <p className="text-muted-foreground italic mb-8 max-w-md mx-auto">
-              Meet the five women who reign as the heart of our chapter — grace, brilliance, and presence personified.
+              Meet the five women of achievement of our chapter.
             </p>
             <Button variant="heroOutline" size="lg" asChild>
               <Link to="/royal-kourt">
