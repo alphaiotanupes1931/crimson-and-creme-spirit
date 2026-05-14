@@ -16,10 +16,10 @@ export const portalDirectory: Semester[] = [
     key: '2024FA',
     label: 'Fall 2024',
     brothers: [
-      { firstName: 'Marcus', lastName: 'McClean', phone: '(410) 274-9268', role: 'Polemarch' },
+      { firstName: 'Marcus', lastName: 'McClean', phone: '(410) 274-9268' },
       { firstName: 'Kamron', lastName: 'Hampton', phone: '(443) 418-1363' },
       { firstName: 'Jaden', lastName: 'Koranteng', phone: '(240) 470-9006' },
-      { firstName: 'Lesley', lastName: 'Ofusu', phone: '(443) 929-4499' },
+      { firstName: 'Lesley', lastName: 'Ofosu', phone: '(443) 929-4499', role: 'Polemarch' },
       { firstName: 'Mohammed', lastName: 'Cole', phone: '(240) 603-8492' },
       { firstName: 'Christian', lastName: 'Sampson', phone: '(929) 320-3305' },
       { firstName: 'Anthony', lastName: 'Noakes', phone: '(267) 285-3577' },
