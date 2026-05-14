@@ -81,8 +81,8 @@ export const HomePage = () => {
                 </p>
               </div>
               <div className="mt-8 pt-8 border-t border-border">
-                <p className="font-display text-2xl text-cream">BROTHER MARCUS MCCLEAN</p>
-                <p className="text-cream/70 text-sm font-semibold tracking-[0.2em]">9AI24FA</p>
+                <p className="font-display text-2xl text-cream">BROTHER LESLEY OFOSU</p>
+                <p className="text-cream/70 text-sm font-semibold tracking-[0.2em]">2AI24FA</p>
                 <p className="text-muted-foreground">Polemarch · Alpha Iota Chapter</p>
               </div>
             </motion.div>
