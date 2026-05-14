@@ -38,7 +38,7 @@ export const PolemarchWelcome = () => {
             </div>
             
             <div className="mt-8">
-              <p className="font-display text-xl text-crimson font-semibold">Brother Godley Pierre</p>
+              <p className="font-display text-xl text-crimson font-semibold">Brother Lesley Ofosu</p>
               <p className="text-muted-foreground">Polemarch, Alpha Iota Chapter</p>
             </div>
           </motion.div>
