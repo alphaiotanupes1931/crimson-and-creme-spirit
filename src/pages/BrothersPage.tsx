@@ -7,12 +7,12 @@ import malachiWoods from '@/assets/malachi-woods.jpg';
 
 // Active brothers data from ainupes1931.com
 const activeBrothersData = [
-  { name: "Kamron Hampton", lineNumber: "0AI24FA", image: "https://i.ibb.co/DgjQfgdN/DF42-D945-E6-DD-4-A6-D-8-BA0-9-DE46-F249430.jpg" },
+  { name: "Kamron Hampton", lineNumber: "0AI24FA", position: "Vice Polemarch", image: "https://i.ibb.co/DgjQfgdN/DF42-D945-E6-DD-4-A6-D-8-BA0-9-DE46-F249430.jpg" },
   { name: "Jaden Koranteng", lineNumber: "1AI24FA", position: "Keeper of Records", image: "https://i.ibb.co/P89VQr5/807-AD7-D0-9-CD0-461-D-A0-B0-76852-F3-EA607.jpg" },
   { name: "Lesley Ofosu", lineNumber: "2AI24FA", position: "Polemarch", image: "https://i.ibb.co/p8Qs3Ky/IMG-4778.jpg" },
   { name: "Mohamed Cole", lineNumber: "3AI24FA", image: "https://i.ibb.co/Q0hPzWQ/Been-on-one-since-03-businessprofessional.jpg" },
   { name: "Christian Sampson", lineNumber: "4AI24FA", position: "Exchequer", image: "https://i.ibb.co/1fpd3CBL/IMG-2464.jpg" },
-  { name: "Anthony Noakes", lineNumber: "5AI24FA", position: "Vice Polemarch", image: "https://i.ibb.co/BHcVJ9BF/IMG-4444.jpg" },
+  { name: "Anthony Noakes", lineNumber: "5AI24FA", image: "https://i.ibb.co/BHcVJ9BF/IMG-4444.jpg" },
   { name: "David Osadiaye", lineNumber: "6AI24FA", image: "https://i.ibb.co/mrNqmQ5Q/1663556202919.jpg" },
   { name: "Marcus McClean", lineNumber: "9AI24FA", image: "https://i.ibb.co/XZ3FPWcK/unnamed-1.jpg" },
   { name: "Corey Green", lineNumber: "0AI23FA", image: "https://i.ibb.co/svmP5p6x/4H7A9980.png" },
