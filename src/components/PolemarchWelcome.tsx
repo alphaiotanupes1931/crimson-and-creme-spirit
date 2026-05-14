@@ -38,7 +38,7 @@ export const PolemarchWelcome = () => {
             </div>
             
             <div className="mt-8">
-              <p className="font-display text-xl text-crimson font-semibold">Brother Godley Pierre</p>
+              <p className="font-display text-xl text-crimson font-semibold">Brother Lesley Ofosu</p>
               <p className="text-muted-foreground">Polemarch, Alpha Iota Chapter</p>
             </div>
           </motion.div>
@@ -49,18 +49,18 @@ export const PolemarchWelcome = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <Card variant="elevated" className="overflow-hidden">
-              <CardContent className="p-0">
-                <img
-                  src={polemarchImg}
-                  alt="Brother Godley Pierre, Polemarch of Alpha Iota Chapter, wearing crimson blazer in professional leadership portrait"
-                  className="w-full aspect-[3/4] object-cover"
-                />
-              </CardContent>
-            </Card>
-            <div className="absolute -bottom-6 -left-6 bg-crimson text-cream p-6 rounded-lg shadow-lg">
-              <p className="font-display text-3xl font-bold">93+</p>
-              <p className="text-cream/80 text-sm">Years of Excellence</p>
+            <div className="relative overflow-hidden">
+              <img
+                src={polemarchImg}
+                alt="Brother Lesley Ofosu, Polemarch of Alpha Iota Chapter, professional leadership portrait"
+                className="w-full aspect-[3/4] object-cover"
+                style={{
+                  WebkitMaskImage:
+                    'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                  maskImage:
+                    'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                }}
+              />
             </div>
           </motion.div>
         </div>
