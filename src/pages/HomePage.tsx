@@ -8,6 +8,7 @@ import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
+import polemarchImg from '@/assets/polemarch.jpg';
 
 
 export const HomePage = () => {
@@ -80,8 +81,8 @@ export const HomePage = () => {
                 </p>
               </div>
               <div className="mt-8 pt-8 border-t border-border">
-                <p className="font-display text-2xl text-cream">BROTHER MARCUS MCCLEAN</p>
-                <p className="text-cream/70 text-sm font-semibold tracking-[0.2em]">9AI24FA</p>
+                <p className="font-display text-2xl text-cream">BROTHER LESLEY OFOSU</p>
+                <p className="text-cream/70 text-sm font-semibold tracking-[0.2em]">2AI24FA</p>
                 <p className="text-muted-foreground">Polemarch · Alpha Iota Chapter</p>
               </div>
             </motion.div>
@@ -95,12 +96,16 @@ export const HomePage = () => {
             >
               <div className="relative aspect-[3/4] max-w-xs mx-auto overflow-hidden">
                 <img
-                  src="https://tmcf.org/wp-content/uploads/news-story-image-marcus-mcclean-scaled.png"
-                  alt="Brother Marcus McClean, Polemarch of Alpha Iota Chapter"
+                  src={polemarchImg}
+                  alt="Brother Lesley Ofosu, Polemarch of Alpha Iota Chapter"
                   className="w-full h-full object-cover"
+                  style={{
+                    WebkitMaskImage:
+                      'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                    maskImage:
+                      'radial-gradient(ellipse 75% 85% at center, black 45%, transparent 100%)',
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
               </div>
             </motion.div>
           </div>

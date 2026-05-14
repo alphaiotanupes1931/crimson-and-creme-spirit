@@ -9,8 +9,8 @@ import graduate1 from '@/assets/graduate-1.jpg';
 import graduate2 from '@/assets/graduate-2.jpg';
 
 const activeBrothers = [
-  { name: "Godley Pierre", position: "Polemarch", lineNumber: "Line 38", image: brother1 },
-  { name: "Marcus McClean", position: "Vice Polemarch", lineNumber: "Line 39", image: brother2 },
+  { name: "Lesley Ofosu", position: "Polemarch", lineNumber: "Line 38", image: brother1 },
+  { name: "Anthony Noakes", position: "Vice Polemarch", lineNumber: "Line 39", image: brother2 },
   { name: "Christian Sampson", position: "Exchequer", lineNumber: "Line 40", image: brother3 },
   { name: "Marcus Thompson", position: "Keeper of Records", lineNumber: "Line 42", image: brother1 },
   { name: "Jamal Williams", position: "Strategus", lineNumber: "Line 41", image: brother2 },
