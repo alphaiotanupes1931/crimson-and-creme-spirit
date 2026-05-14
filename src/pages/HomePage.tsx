@@ -8,6 +8,7 @@ import heroVideo from '@/assets/hero-video.mp4';
 import brandonVideo from '@/assets/brandon-wylie.mp4';
 import brandonPoster from '@/assets/brandon-wylie-poster.jpg';
 import terellReedPhoto from '@/assets/terell-reed-webmaster.png';
+import polemarchImg from '@/assets/polemarch.jpg';
 
 
 export const HomePage = () => {
