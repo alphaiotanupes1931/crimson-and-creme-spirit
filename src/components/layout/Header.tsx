@@ -39,6 +39,7 @@ const navItems = [
   { name: 'Gallery', href: '/gallery' },
   { name: 'Portal', href: '/portal' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Merch', href: 'https://alphaiotamerch.com', external: true },
 ];
 
 export const Header = () => {
