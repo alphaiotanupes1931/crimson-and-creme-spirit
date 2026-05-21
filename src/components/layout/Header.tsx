@@ -116,17 +116,28 @@ export const Header = () => {
                 onMouseEnter={() => item.children && setOpenDropdown(item.name)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <Link
-                  to={item.href}
-                  className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 ${
-                    location.pathname === item.href 
-                      ? 'text-cream' 
-                      : 'text-foreground/80 hover:text-cream'
-                  }`}
-                >
-                  {item.name}
-                  {item.children && <ChevronDown className="w-3 h-3" />}
-                </Link>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 text-foreground/80 hover:text-cream"
+                  >
+                    {item.name} <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 ${
+                      location.pathname === item.href 
+                        ? 'text-cream' 
+                        : 'text-foreground/80 hover:text-cream'
+                    }`}
+                  >
+                    {item.name}
+                    {item.children && <ChevronDown className="w-3 h-3" />}
+                  </Link>
+                )}
 
                 {/* Dropdown */}
                 {item.children && (
