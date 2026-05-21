@@ -39,6 +39,7 @@ const navItems = [
   { name: 'Gallery', href: '/gallery' },
   { name: 'Portal', href: '/portal' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Merch', href: 'https://alphaiotamerch.com', external: true },
 ];
 
 export const Header = () => {
@@ -115,17 +116,28 @@ export const Header = () => {
                 onMouseEnter={() => item.children && setOpenDropdown(item.name)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <Link
-                  to={item.href}
-                  className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 ${
-                    location.pathname === item.href 
-                      ? 'text-cream' 
-                      : 'text-foreground/80 hover:text-cream'
-                  }`}
-                >
-                  {item.name}
-                  {item.children && <ChevronDown className="w-3 h-3" />}
-                </Link>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 text-foreground/80 hover:text-cream"
+                  >
+                    {item.name} <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider transition-colors flex items-center gap-1 ${
+                      location.pathname === item.href 
+                        ? 'text-cream' 
+                        : 'text-foreground/80 hover:text-cream'
+                    }`}
+                  >
+                    {item.name}
+                    {item.children && <ChevronDown className="w-3 h-3" />}
+                  </Link>
+                )}
 
                 {/* Dropdown */}
                 {item.children && (
@@ -189,12 +201,23 @@ export const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <Link
-                    to={item.href}
-                    className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
-                  >
-                    {item.name}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
+                    >
+                      {item.name} <ExternalLink className="inline w-4 h-4 ml-1" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                   {item.children && (
                     <div className="pl-4 border-l-2 border-cream/30">
                       {item.children.map((child) => (
