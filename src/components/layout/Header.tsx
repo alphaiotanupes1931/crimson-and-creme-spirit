@@ -201,12 +201,23 @@ export const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                  <Link
-                    to={item.href}
-                    className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
-                  >
-                    {item.name}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
+                    >
+                      {item.name} <ExternalLink className="inline w-4 h-4 ml-1" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="block py-3 text-lg font-semibold text-foreground hover:text-cream transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                   {item.children && (
                     <div className="pl-4 border-l-2 border-cream/30">
                       {item.children.map((child) => (
