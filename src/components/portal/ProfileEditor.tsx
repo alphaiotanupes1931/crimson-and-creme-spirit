@@ -24,6 +24,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
     position: '',
     field_of_study: '',
     job: '',
+    links: '',
   });
   const { toast } = useToast();
 
