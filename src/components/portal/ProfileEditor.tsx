@@ -108,6 +108,16 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         </div>
 
         <div>
+          <label className="text-sm text-muted-foreground mb-1 block">Line Name</label>
+          <Input
+            value={profile.line_name}
+            onChange={(e) => setProfile({ ...profile, line_name: e.target.value })}
+            placeholder="e.g. Diesel"
+            className="bg-card border-border"
+          />
+        </div>
+
+        <div>
           <label className="text-sm text-muted-foreground mb-1 block">Phone</label>
           <Input
             value={profile.phone}
