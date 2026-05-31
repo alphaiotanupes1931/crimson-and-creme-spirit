@@ -23,6 +23,7 @@ export type Database = {
           id: string
           job: string | null
           last_name: string
+          line_name: string | null
           links: string | null
           phone: string | null
           position: string | null
@@ -41,6 +42,7 @@ export type Database = {
           id?: string
           job?: string | null
           last_name: string
+          line_name?: string | null
           links?: string | null
           phone?: string | null
           position?: string | null
@@ -59,6 +61,7 @@ export type Database = {
           id?: string
           job?: string | null
           last_name?: string
+          line_name?: string | null
           links?: string | null
           phone?: string | null
           position?: string | null

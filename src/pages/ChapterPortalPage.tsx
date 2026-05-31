@@ -7,6 +7,7 @@ import portalHeader from '@/assets/portal-header.png';
 import { supabase } from '@/integrations/supabase/client';
 import { PortalAuth } from '@/components/portal/PortalAuth';
 import { ProfileEditor } from '@/components/portal/ProfileEditor';
+import { OnboardingForm } from '@/components/portal/OnboardingForm';
 
 const CHAPTER_PASSWORD = 'admin123';
 
@@ -23,6 +24,7 @@ interface Brother {
   field_of_study: string | null;
   job: string | null;
   links: string | null;
+  line_name: string | null;
   semester: string;
   semester_label: string;
   semester_sort: number;
@@ -36,7 +38,10 @@ export const ChapterPortalPage = () => {
   const [user, setUser] = useState<any>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [brothers, setBrothers] = useState<Brother[]>([]);
+  const [brothersFetched, setBrothersFetched] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [yearFilter, setYearFilter] = useState('all');
+  const [occupationFilter, setOccupationFilter] = useState('all');
   const [showEditor, setShowEditor] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -60,7 +65,8 @@ export const ChapterPortalPage = () => {
       .from('brothers')
       .select('*')
       .order('semester_sort', { ascending: false });
-    if (data) setBrothers(data);
+    if (data) setBrothers(data as any);
+    setBrothersFetched(true);
   }, []);
 
   useEffect(() => {
@@ -83,17 +89,31 @@ export const ChapterPortalPage = () => {
   };
 
   const userBrother = user ? brothers.find(b => b.user_id === user.id) : null;
+  const needsOnboarding = !!user && brothersFetched && !userBrother;
 
-  // Flat, searchable list of brothers
+  // Unique filter options
+  const yearOptions = Array.from(
+    new Map(brothers.map(b => [b.semester_label, b.semester_sort])).entries()
+  ).sort((a, b) => b[1] - a[1]).map(([label]) => label);
+
+  const occupationOptions = Array.from(
+    new Set(brothers.map(b => (b.job || '').trim()).filter(Boolean))
+  ).sort();
+
+  // Flat, filtered, searchable list of brothers
   const q = searchQuery.trim().toLowerCase();
   const filteredBrothers = brothers.filter(b => {
+    if (yearFilter !== 'all' && b.semester_label !== yearFilter) return false;
+    if (occupationFilter !== 'all' && (b.job || '') !== occupationFilter) return false;
     if (!q) return true;
-    const hay = `${b.first_name} ${b.last_name} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
+    const hay = `${b.first_name} ${b.last_name} ${b.line_name || ''} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
     return hay.includes(q);
   });
 
   // Find polemarch
   const polemarch = brothers.find(b => b.role === 'Polemarch');
+
+
 
   // Not unlocked yet — show password gate
   if (!portalUnlocked) {
@@ -221,6 +241,23 @@ export const ChapterPortalPage = () => {
         </section>
       )}
 
+      {/* Onboarding for new brothers */}
+      {needsOnboarding && (
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-6">
+            <OnboardingForm
+              userId={user.id}
+              defaultEmail={user.email || ''}
+              defaultFirstName={user.user_metadata?.first_name || ''}
+              defaultLastName={user.user_metadata?.last_name || ''}
+              onComplete={fetchBrothers}
+            />
+          </div>
+        </section>
+      )}
+
+
+
       {/* Polemarch Section */}
       {polemarch && (
         <section className="py-16 bg-card border-b border-border">
@@ -245,18 +282,49 @@ export const ChapterPortalPage = () => {
       {/* Directory */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="mb-12">
-            <div className="relative max-w-md mx-auto">
+          <div className="mb-10 space-y-3">
+            <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search brothers..."
+                placeholder="Search by name, line name, occupation..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 py-6 text-lg bg-card border-border"
               />
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <select
+                value={yearFilter}
+                onChange={(e) => setYearFilter(e.target.value)}
+                className="h-11 px-3 bg-card border border-border text-foreground"
+              >
+                <option value="all">All Years / Lines</option>
+                {yearOptions.map(y => <option key={y} value={y}>{y}</option>)}
+              </select>
+              <select
+                value={occupationFilter}
+                onChange={(e) => setOccupationFilter(e.target.value)}
+                className="h-11 px-3 bg-card border border-border text-foreground"
+              >
+                <option value="all">All Occupations</option>
+                {occupationOptions.map(o => <option key={o} value={o}>{o}</option>)}
+              </select>
+              {(yearFilter !== 'all' || occupationFilter !== 'all' || searchQuery) && (
+                <button
+                  type="button"
+                  onClick={() => { setYearFilter('all'); setOccupationFilter('all'); setSearchQuery(''); }}
+                  className="h-11 px-3 border border-border text-muted-foreground hover:text-foreground hover:border-cream/30 transition-colors text-sm"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Showing {filteredBrothers.length} of {brothers.length} brothers
+            </p>
           </div>
+
 
           <div className="grid gap-2">
             {filteredBrothers.map((brother) => {
@@ -274,6 +342,9 @@ export const ChapterPortalPage = () => {
                   <div className="flex items-start justify-between gap-4 flex-wrap">
                     <div className="flex items-center gap-3 flex-wrap min-w-0">
                       <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
+                      {brother.line_name && (
+                        <span className="text-xs italic text-cream/80">"{brother.line_name}"</span>
+                      )}
                       {brother.role && (
                         <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
                       )}

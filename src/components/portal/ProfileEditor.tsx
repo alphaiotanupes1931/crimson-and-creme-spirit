@@ -25,6 +25,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
     field_of_study: '',
     job: '',
     links: '',
+    line_name: '',
   });
   const { toast } = useToast();
 
@@ -47,6 +48,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           field_of_study: data.field_of_study || '',
           job: data.job || '',
           links: (data as any).links || '',
+          line_name: (data as any).line_name || '',
         });
       }
       setLoading(false);
@@ -65,6 +67,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         field_of_study: profile.field_of_study || null,
         job: profile.job || null,
         links: profile.links || null,
+        line_name: profile.line_name || null,
       } as any)
       .eq('user_id', userId);
 
@@ -102,6 +105,16 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
             <label className="text-sm text-muted-foreground mb-1 block">Last Name</label>
             <Input value={profile.last_name} disabled className="bg-muted border-border" />
           </div>
+        </div>
+
+        <div>
+          <label className="text-sm text-muted-foreground mb-1 block">Line Name</label>
+          <Input
+            value={profile.line_name}
+            onChange={(e) => setProfile({ ...profile, line_name: e.target.value })}
+            placeholder="e.g. Diesel"
+            className="bg-card border-border"
+          />
         </div>
 
         <div>
