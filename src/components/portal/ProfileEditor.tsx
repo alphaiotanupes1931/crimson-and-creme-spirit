@@ -155,6 +155,19 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           />
         </div>
 
+        <div>
+          <label className="text-sm text-muted-foreground mb-1 block">Links (LinkedIn, Instagram, website, etc.)</label>
+          <Input
+            value={profile.links}
+            onChange={(e) => setProfile({ ...profile, links: e.target.value })}
+            placeholder="https://linkedin.com/in/you, https://instagram.com/you"
+            className="bg-card border-border"
+          />
+          <p className="text-xs text-muted-foreground mt-1">Separate multiple links with commas.</p>
+        </div>
+
+
+
         <Button onClick={handleSave} variant="cream" className="w-full py-5" disabled={saving}>
           <Save className="w-4 h-4 mr-2" />
           {saving ? 'Saving...' : 'Save Profile'}
