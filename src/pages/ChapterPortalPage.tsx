@@ -342,6 +342,9 @@ export const ChapterPortalPage = () => {
                   <div className="flex items-start justify-between gap-4 flex-wrap">
                     <div className="flex items-center gap-3 flex-wrap min-w-0">
                       <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
+                      {brother.line_name && (
+                        <span className="text-xs italic text-cream/80">"{brother.line_name}"</span>
+                      )}
                       {brother.role && (
                         <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
                       )}
