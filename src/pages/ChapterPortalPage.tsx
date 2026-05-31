@@ -179,10 +179,11 @@ export const ChapterPortalPage = () => {
         <div className="container mx-auto px-6 relative h-full flex items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Members Only</span>
-            <h1 className="font-display text-5xl md:text-7xl text-cream mt-4 mb-4">CHAPTER PORTAL</h1>
-            <p className="text-cream/70 text-lg">
-              Welcome{userBrother ? `, ${userBrother.first_name}` : ', Brother'}.
-            </p>
+            <h1 className="font-display text-5xl md:text-7xl text-cream mt-4 mb-4">
+              {userBrother ? `WELCOME, BROTHER ${userBrother.last_name.toUpperCase()}` : 'CHAPTER PORTAL'}
+            </h1>
+            <p className="text-cream/70 text-lg">The Alpha Iota chapter directory.</p>
+
           </motion.div>
         </div>
         <div className="absolute top-6 right-6 flex items-center gap-3">
