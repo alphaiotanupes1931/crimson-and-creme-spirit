@@ -22,17 +22,11 @@ interface Brother {
   position: string | null;
   field_of_study: string | null;
   job: string | null;
+  links: string | null;
   semester: string;
   semester_label: string;
   semester_sort: number;
   user_id: string | null;
-}
-
-interface SemesterGroup {
-  key: string;
-  label: string;
-  sort: number;
-  brothers: Brother[];
 }
 
 export const ChapterPortalPage = () => {
