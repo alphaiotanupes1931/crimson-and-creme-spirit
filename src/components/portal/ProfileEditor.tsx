@@ -48,6 +48,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           field_of_study: data.field_of_study || '',
           job: data.job || '',
           links: (data as any).links || '',
+          line_name: (data as any).line_name || '',
         });
       }
       setLoading(false);
