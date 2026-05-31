@@ -1,0 +1,1 @@
+ALTER TABLE public.brothers ADD COLUMN IF NOT EXISTS links text;
