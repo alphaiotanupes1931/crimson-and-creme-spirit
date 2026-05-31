@@ -8,7 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { PortalAuth } from '@/components/portal/PortalAuth';
 import { ProfileEditor } from '@/components/portal/ProfileEditor';
 
-const CHAPTER_PASSWORD = '5291931Nupes!';
+const CHAPTER_PASSWORD = 'admin123';
 
 const formatPhoneLink = (phone: string) => phone.replace(/[^0-9]/g, '');
 
