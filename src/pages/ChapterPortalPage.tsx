@@ -282,18 +282,49 @@ export const ChapterPortalPage = () => {
       {/* Directory */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="mb-12">
-            <div className="relative max-w-md mx-auto">
+          <div className="mb-10 space-y-3">
+            <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Search brothers..."
+                placeholder="Search by name, line name, occupation..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 py-6 text-lg bg-card border-border"
               />
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <select
+                value={yearFilter}
+                onChange={(e) => setYearFilter(e.target.value)}
+                className="h-11 px-3 bg-card border border-border text-foreground"
+              >
+                <option value="all">All Years / Lines</option>
+                {yearOptions.map(y => <option key={y} value={y}>{y}</option>)}
+              </select>
+              <select
+                value={occupationFilter}
+                onChange={(e) => setOccupationFilter(e.target.value)}
+                className="h-11 px-3 bg-card border border-border text-foreground"
+              >
+                <option value="all">All Occupations</option>
+                {occupationOptions.map(o => <option key={o} value={o}>{o}</option>)}
+              </select>
+              {(yearFilter !== 'all' || occupationFilter !== 'all' || searchQuery) && (
+                <button
+                  type="button"
+                  onClick={() => { setYearFilter('all'); setOccupationFilter('all'); setSearchQuery(''); }}
+                  className="h-11 px-3 border border-border text-muted-foreground hover:text-foreground hover:border-cream/30 transition-colors text-sm"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Showing {filteredBrothers.length} of {brothers.length} brothers
+            </p>
           </div>
+
 
           <div className="grid gap-2">
             {filteredBrothers.map((brother) => {
