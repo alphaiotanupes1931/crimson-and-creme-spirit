@@ -84,20 +84,13 @@ export const ChapterPortalPage = () => {
 
   const userBrother = user ? brothers.find(b => b.user_id === user.id) : null;
 
-  // Group by semester
-  const grouped: SemesterGroup[] = [];
-  const semMap = new Map<string, SemesterGroup>();
-  for (const b of brothers) {
-    if (searchQuery && !`${b.first_name} ${b.last_name}`.toLowerCase().includes(searchQuery.toLowerCase())) continue;
-    let group = semMap.get(b.semester);
-    if (!group) {
-      group = { key: b.semester, label: b.semester_label, sort: b.semester_sort, brothers: [] };
-      semMap.set(b.semester, group);
-      grouped.push(group);
-    }
-    group.brothers.push(b);
-  }
-  grouped.sort((a, b) => b.sort - a.sort);
+  // Flat, searchable list of brothers
+  const q = searchQuery.trim().toLowerCase();
+  const filteredBrothers = brothers.filter(b => {
+    if (!q) return true;
+    const hay = `${b.first_name} ${b.last_name} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
+    return hay.includes(q);
+  });
 
   // Find polemarch
   const polemarch = brothers.find(b => b.role === 'Polemarch');
