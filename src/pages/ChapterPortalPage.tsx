@@ -7,6 +7,7 @@ import portalHeader from '@/assets/portal-header.png';
 import { supabase } from '@/integrations/supabase/client';
 import { PortalAuth } from '@/components/portal/PortalAuth';
 import { ProfileEditor } from '@/components/portal/ProfileEditor';
+import { OnboardingForm } from '@/components/portal/OnboardingForm';
 
 const CHAPTER_PASSWORD = 'admin123';
 
@@ -23,6 +24,7 @@ interface Brother {
   field_of_study: string | null;
   job: string | null;
   links: string | null;
+  line_name: string | null;
   semester: string;
   semester_label: string;
   semester_sort: number;
@@ -36,7 +38,10 @@ export const ChapterPortalPage = () => {
   const [user, setUser] = useState<any>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [brothers, setBrothers] = useState<Brother[]>([]);
+  const [brothersFetched, setBrothersFetched] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [yearFilter, setYearFilter] = useState('all');
+  const [occupationFilter, setOccupationFilter] = useState('all');
   const [showEditor, setShowEditor] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -60,7 +65,8 @@ export const ChapterPortalPage = () => {
       .from('brothers')
       .select('*')
       .order('semester_sort', { ascending: false });
-    if (data) setBrothers(data);
+    if (data) setBrothers(data as any);
+    setBrothersFetched(true);
   }, []);
 
   useEffect(() => {
@@ -83,17 +89,31 @@ export const ChapterPortalPage = () => {
   };
 
   const userBrother = user ? brothers.find(b => b.user_id === user.id) : null;
+  const needsOnboarding = !!user && brothersFetched && !userBrother;
 
-  // Flat, searchable list of brothers
+  // Unique filter options
+  const yearOptions = Array.from(
+    new Map(brothers.map(b => [b.semester_label, b.semester_sort])).entries()
+  ).sort((a, b) => b[1] - a[1]).map(([label]) => label);
+
+  const occupationOptions = Array.from(
+    new Set(brothers.map(b => (b.job || '').trim()).filter(Boolean))
+  ).sort();
+
+  // Flat, filtered, searchable list of brothers
   const q = searchQuery.trim().toLowerCase();
   const filteredBrothers = brothers.filter(b => {
+    if (yearFilter !== 'all' && b.semester_label !== yearFilter) return false;
+    if (occupationFilter !== 'all' && (b.job || '') !== occupationFilter) return false;
     if (!q) return true;
-    const hay = `${b.first_name} ${b.last_name} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
+    const hay = `${b.first_name} ${b.last_name} ${b.line_name || ''} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
     return hay.includes(q);
   });
 
   // Find polemarch
   const polemarch = brothers.find(b => b.role === 'Polemarch');
+
+
 
   // Not unlocked yet — show password gate
   if (!portalUnlocked) {
