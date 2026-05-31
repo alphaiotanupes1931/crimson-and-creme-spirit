@@ -67,6 +67,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         field_of_study: profile.field_of_study || null,
         job: profile.job || null,
         links: profile.links || null,
+        line_name: profile.line_name || null,
       } as any)
       .eq('user_id', userId);
 
