@@ -22,17 +22,11 @@ interface Brother {
   position: string | null;
   field_of_study: string | null;
   job: string | null;
+  links: string | null;
   semester: string;
   semester_label: string;
   semester_sort: number;
   user_id: string | null;
-}
-
-interface SemesterGroup {
-  key: string;
-  label: string;
-  sort: number;
-  brothers: Brother[];
 }
 
 export const ChapterPortalPage = () => {
@@ -90,20 +84,13 @@ export const ChapterPortalPage = () => {
 
   const userBrother = user ? brothers.find(b => b.user_id === user.id) : null;
 
-  // Group by semester
-  const grouped: SemesterGroup[] = [];
-  const semMap = new Map<string, SemesterGroup>();
-  for (const b of brothers) {
-    if (searchQuery && !`${b.first_name} ${b.last_name}`.toLowerCase().includes(searchQuery.toLowerCase())) continue;
-    let group = semMap.get(b.semester);
-    if (!group) {
-      group = { key: b.semester, label: b.semester_label, sort: b.semester_sort, brothers: [] };
-      semMap.set(b.semester, group);
-      grouped.push(group);
-    }
-    group.brothers.push(b);
-  }
-  grouped.sort((a, b) => b.sort - a.sort);
+  // Flat, searchable list of brothers
+  const q = searchQuery.trim().toLowerCase();
+  const filteredBrothers = brothers.filter(b => {
+    if (!q) return true;
+    const hay = `${b.first_name} ${b.last_name} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
+    return hay.includes(q);
+  });
 
   // Find polemarch
   const polemarch = brothers.find(b => b.role === 'Polemarch');
@@ -192,10 +179,11 @@ export const ChapterPortalPage = () => {
         <div className="container mx-auto px-6 relative h-full flex items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Members Only</span>
-            <h1 className="font-display text-5xl md:text-7xl text-cream mt-4 mb-4">CHAPTER PORTAL</h1>
-            <p className="text-cream/70 text-lg">
-              Welcome{userBrother ? `, ${userBrother.first_name}` : ', Brother'}.
-            </p>
+            <h1 className="font-display text-5xl md:text-7xl text-cream mt-4 mb-4">
+              {userBrother ? `WELCOME, BROTHER ${userBrother.last_name.toUpperCase()}` : 'CHAPTER PORTAL'}
+            </h1>
+            <p className="text-cream/70 text-lg">The Alpha Iota chapter directory.</p>
+
           </motion.div>
         </div>
         <div className="absolute top-6 right-6 flex items-center gap-3">
@@ -270,30 +258,44 @@ export const ChapterPortalPage = () => {
             </div>
           </div>
 
-          <div className="space-y-12">
-            {grouped.map((semester) => (
-              <motion.div key={semester.key} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-                <h2 className="font-display text-2xl text-cream mb-4">{semester.label}</h2>
-                <div className="grid gap-2">
-                  {semester.brothers.map((brother) => (
-                    <div key={brother.id} className="flex items-center justify-between py-3 px-4 bg-card border border-border hover:border-cream/30 transition-colors">
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
-                        {brother.role && (
-                          <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
-                        )}
-                        {brother.position && (
-                          <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded font-semibold">{brother.position}</span>
-                        )}
-                        {brother.field_of_study && (
-                          <span className="text-xs text-muted-foreground hidden sm:inline">• {brother.field_of_study}</span>
-                        )}
-                        {brother.job && (
-                          <span className="text-xs text-muted-foreground hidden md:inline">• {brother.job}</span>
-                        )}
-                      </div>
+          <div className="grid gap-2">
+            {filteredBrothers.map((brother) => {
+              const linkList = (brother.links || '')
+                .split(',')
+                .map(l => l.trim())
+                .filter(Boolean);
+              return (
+                <motion.div
+                  key={brother.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="py-3 px-4 bg-card border border-border hover:border-cream/30 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <div className="flex items-center gap-3 flex-wrap min-w-0">
+                      <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
+                      {brother.role && (
+                        <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
+                      )}
+                      {brother.position && (
+                        <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded font-semibold">{brother.position}</span>
+                      )}
+                      <span className="text-xs text-muted-foreground">{brother.semester_label}</span>
+                      {brother.field_of_study && (
+                        <span className="text-xs text-muted-foreground hidden sm:inline">• {brother.field_of_study}</span>
+                      )}
+                      {brother.job && (
+                        <span className="text-xs text-muted-foreground hidden md:inline">• {brother.job}</span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-4 shrink-0">
+                      {brother.email && (
+                        <a href={`mailto:${brother.email}`} className="text-sm text-cream hover:text-cream-dark transition-colors hidden md:inline">
+                          {brother.email}
+                        </a>
+                      )}
                       {brother.phone ? (
-                        <a href={`tel:${formatPhoneLink(brother.phone)}`} className="flex items-center gap-2 text-sm text-cream hover:text-cream-dark transition-colors shrink-0">
+                        <a href={`tel:${formatPhoneLink(brother.phone)}`} className="flex items-center gap-2 text-sm text-cream hover:text-cream-dark transition-colors">
                           <Phone className="w-4 h-4" />
                           <span className="hidden sm:inline">{brother.phone}</span>
                         </a>
@@ -301,10 +303,31 @@ export const ChapterPortalPage = () => {
                         <span className="text-muted-foreground/40 text-sm">—</span>
                       )}
                     </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+                  {linkList.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                      {linkList.map((link, i) => {
+                        const href = link.startsWith('http') ? link : `https://${link}`;
+                        return (
+                          <a
+                            key={i}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-cream/80 hover:text-cream underline underline-offset-2 break-all"
+                          >
+                            {link}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
+            {filteredBrothers.length === 0 && (
+              <p className="text-center text-muted-foreground py-8">No brothers match your search.</p>
+            )}
           </div>
 
           {/* Quick Links */}
