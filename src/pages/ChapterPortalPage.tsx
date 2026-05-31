@@ -241,6 +241,23 @@ export const ChapterPortalPage = () => {
         </section>
       )}
 
+      {/* Onboarding for new brothers */}
+      {needsOnboarding && (
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-6">
+            <OnboardingForm
+              userId={user.id}
+              defaultEmail={user.email || ''}
+              defaultFirstName={user.user_metadata?.first_name || ''}
+              defaultLastName={user.user_metadata?.last_name || ''}
+              onComplete={fetchBrothers}
+            />
+          </div>
+        </section>
+      )}
+
+
+
       {/* Polemarch Section */}
       {polemarch && (
         <section className="py-16 bg-card border-b border-border">
