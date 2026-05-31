@@ -46,6 +46,7 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           position: data.position || '',
           field_of_study: data.field_of_study || '',
           job: data.job || '',
+          links: (data as any).links || '',
         });
       }
       setLoading(false);
@@ -63,7 +64,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         position: profile.position || null,
         field_of_study: profile.field_of_study || null,
         job: profile.job || null,
-      })
+        links: profile.links || null,
+      } as any)
       .eq('user_id', userId);
 
     if (error) {
