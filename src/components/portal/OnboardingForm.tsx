@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { US_STATES, FIELD_CATEGORIES } from '@/data/portalOptions';
 
 interface OnboardingFormProps {
   userId: string;
@@ -35,6 +36,8 @@ export const OnboardingForm = ({
   const [year, setYear] = useState(String(currentYear));
   const [job, setJob] = useState('');
   const [fieldOfStudy, setFieldOfStudy] = useState('');
+  const [fieldCategory, setFieldCategory] = useState('');
+  const [state, setState] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState(defaultEmail);
   const [links, setLinks] = useState('');
@@ -57,7 +60,6 @@ export const OnboardingForm = ({
     const yearNum = parseInt(year, 10);
     const semester = `${season}${String(yearNum).slice(-2)}`;
     const semester_label = `${season === 'SP' ? 'Spring' : 'Fall'} ${yearNum}`;
-    // Sort: year * 10, +5 for FA to put Fall after Spring of the same year
     const semester_sort = yearNum * 10 + (season === 'FA' ? 5 : 0);
 
     const { error } = await supabase.from('brothers').insert({
@@ -72,6 +74,8 @@ export const OnboardingForm = ({
       email: email.trim() || null,
       job: job.trim() || null,
       field_of_study: fieldOfStudy.trim() || null,
+      field_category: fieldCategory || null,
+      state: state || null,
       links: links.trim() || null,
     } as any);
 
@@ -119,22 +123,31 @@ export const OnboardingForm = ({
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-sm text-muted-foreground mb-1 block">Season</label>
-            <select
-              value={season}
-              onChange={(e) => setSeason(e.target.value)}
-              className="w-full h-10 px-3 bg-background border border-border text-foreground"
-            >
+            <select value={season} onChange={(e) => setSeason(e.target.value)} className="w-full h-10 px-3 bg-background border border-border text-foreground">
               {SEMESTER_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </select>
           </div>
           <div>
             <label className="text-sm text-muted-foreground mb-1 block">Year Crossed</label>
-            <select
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              className="w-full h-10 px-3 bg-background border border-border text-foreground"
-            >
+            <select value={year} onChange={(e) => setYear(e.target.value)} className="w-full h-10 px-3 bg-background border border-border text-foreground">
               {YEAR_OPTIONS.map(y => <option key={y} value={y}>{y}</option>)}
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Field / Industry</label>
+            <select value={fieldCategory} onChange={(e) => setFieldCategory(e.target.value)} className="w-full h-10 px-3 bg-background border border-border text-foreground">
+              <option value="">Select field…</option>
+              {FIELD_CATEGORIES.map(f => <option key={f} value={f}>{f}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">State</label>
+            <select value={state} onChange={(e) => setState(e.target.value)} className="w-full h-10 px-3 bg-background border border-border text-foreground">
+              <option value="">Select state…</option>
+              {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
         </div>
