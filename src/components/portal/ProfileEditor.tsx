@@ -52,6 +52,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           job: data.job || '',
           links: (data as any).links || '',
           line_name: (data as any).line_name || '',
+          state: (data as any).state || '',
+          field_category: (data as any).field_category || '',
         });
       }
       setLoading(false);
@@ -71,6 +73,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         job: profile.job || null,
         links: profile.links || null,
         line_name: profile.line_name || null,
+        state: profile.state || null,
+        field_category: profile.field_category || null,
       } as any)
       .eq('user_id', userId);
 
