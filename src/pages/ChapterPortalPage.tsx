@@ -27,6 +27,8 @@ interface Brother {
   job: string | null;
   links: string | null;
   line_name: string | null;
+  state: string | null;
+  field_category: string | null;
   semester: string;
   semester_label: string;
   semester_sort: number;
