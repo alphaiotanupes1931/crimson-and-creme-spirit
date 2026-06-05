@@ -107,13 +107,23 @@ export const ChapterPortalPage = () => {
     new Set(brothers.map(b => (b.job || '').trim()).filter(Boolean))
   ).sort();
 
+  const stateOptions = Array.from(
+    new Set(brothers.map(b => (b.state || '').trim()).filter(Boolean))
+  ).sort();
+
+  const fieldOptions = Array.from(
+    new Set(brothers.map(b => (b.field_category || '').trim()).filter(Boolean))
+  ).sort();
+
   // Flat, filtered, searchable list of brothers
   const q = searchQuery.trim().toLowerCase();
   const filteredBrothers = brothers.filter(b => {
     if (yearFilter !== 'all' && b.semester_label !== yearFilter) return false;
     if (occupationFilter !== 'all' && (b.job || '') !== occupationFilter) return false;
+    if (stateFilter !== 'all' && (b.state || '') !== stateFilter) return false;
+    if (fieldFilter !== 'all' && (b.field_category || '') !== fieldFilter) return false;
     if (!q) return true;
-    const hay = `${b.first_name} ${b.last_name} ${b.line_name || ''} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''}`.toLowerCase();
+    const hay = `${b.first_name} ${b.last_name} ${b.line_name || ''} ${b.position || ''} ${b.role || ''} ${b.field_of_study || ''} ${b.job || ''} ${b.state || ''} ${b.field_category || ''}`.toLowerCase();
     return hay.includes(q);
   });
 
