@@ -275,163 +275,198 @@ export const ChapterPortalPage = () => {
 
 
 
-      {/* Polemarch Section */}
-      {polemarch && (
-        <section className="py-16 bg-card border-b border-border">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="text-center">
-              <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Chapter Leadership</span>
-              <h2 className="font-display text-3xl md:text-4xl text-foreground mt-3 mb-2">Polemarch</h2>
-              <div className="w-16 h-0.5 bg-cream mx-auto mb-8" />
-              <p className="font-display text-2xl text-cream">{polemarch.first_name} {polemarch.last_name}</p>
-              <p className="text-muted-foreground mt-1">{polemarch.semester_label}</p>
-              {polemarch.phone && (
-                <a href={`tel:${formatPhoneLink(polemarch.phone)}`} className="inline-flex items-center gap-2 mt-4 text-cream hover:text-cream-dark transition-colors">
-                  <Phone className="w-4 h-4" />
-                  <span>{polemarch.phone}</span>
-                </a>
-              )}
-            </div>
-          </div>
-        </section>
+      {/* App Suite (default view after auth + onboarding) */}
+      {!needsOnboarding && portalView === 'apps' && (
+        <AppSuite onSelect={setPortalView} brotherLastName={userBrother?.last_name} />
       )}
 
-      {/* Directory */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="mb-10 space-y-3">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Search by name, line name, occupation..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 py-6 text-lg bg-card border-border"
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <select
-                value={yearFilter}
-                onChange={(e) => setYearFilter(e.target.value)}
-                className="h-11 px-3 bg-card border border-border text-foreground"
-              >
-                <option value="all">All Years / Lines</option>
-                {yearOptions.map(y => <option key={y} value={y}>{y}</option>)}
-              </select>
-              <select
-                value={occupationFilter}
-                onChange={(e) => setOccupationFilter(e.target.value)}
-                className="h-11 px-3 bg-card border border-border text-foreground"
-              >
-                <option value="all">All Occupations</option>
-                {occupationOptions.map(o => <option key={o} value={o}>{o}</option>)}
-              </select>
-              {(yearFilter !== 'all' || occupationFilter !== 'all' || searchQuery) && (
+      {/* Placeholder apps */}
+      {!needsOnboarding && portalView === 'calendar' && (
+        <PlaceholderApp
+          title="Calendar"
+          description="Chapter meetings, events, and important dates."
+          onBack={() => setPortalView('apps')}
+        />
+      )}
+      {!needsOnboarding && portalView === 'notes' && (
+        <PlaceholderApp
+          title="Meeting Notes"
+          description="Minutes and notes from chapter and committee meetings."
+          onBack={() => setPortalView('apps')}
+        />
+      )}
+      {!needsOnboarding && portalView === 'elections' && (
+        <PlaceholderApp
+          title="Elections"
+          description="Cast votes and review chapter elections."
+          onBack={() => setPortalView('apps')}
+        />
+      )}
+
+      {/* Directory view */}
+      {!needsOnboarding && portalView === 'directory' && (
+        <>
+          {/* Polemarch Section */}
+          {polemarch && (
+            <section className="py-16 bg-card border-b border-border">
+              <div className="container mx-auto px-6 max-w-5xl">
                 <button
-                  type="button"
-                  onClick={() => { setYearFilter('all'); setOccupationFilter('all'); setSearchQuery(''); }}
-                  className="h-11 px-3 border border-border text-muted-foreground hover:text-foreground hover:border-cream/30 transition-colors text-sm"
+                  onClick={() => setPortalView('apps')}
+                  className="flex items-center gap-2 text-cream text-sm hover:underline mb-6"
                 >
-                  Clear filters
+                  <ArrowLeft className="w-4 h-4" /> Back to apps
                 </button>
-              )}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Showing {filteredBrothers.length} of {brothers.length} brothers
-            </p>
-          </div>
-
-
-          <div className="grid gap-2">
-            {filteredBrothers.map((brother) => {
-              const linkList = (brother.links || '')
-                .split(',')
-                .map(l => l.trim())
-                .filter(Boolean);
-              return (
-                <motion.div
-                  key={brother.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="py-3 px-4 bg-card border border-border hover:border-cream/30 transition-colors"
-                >
-                  <div className="flex items-start justify-between gap-4 flex-wrap">
-                    <div className="flex items-center gap-3 flex-wrap min-w-0">
-                      <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
-                      {brother.line_name && (
-                        <span className="text-xs italic text-cream/80">"{brother.line_name}"</span>
-                      )}
-                      {brother.role && (
-                        <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
-                      )}
-                      {brother.position && (
-                        <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded font-semibold">{brother.position}</span>
-                      )}
-                      <span className="text-xs text-muted-foreground">{brother.semester_label}</span>
-                      {brother.field_of_study && (
-                        <span className="text-xs text-muted-foreground hidden sm:inline">• {brother.field_of_study}</span>
-                      )}
-                      {brother.job && (
-                        <span className="text-xs text-muted-foreground hidden md:inline">• {brother.job}</span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-4 shrink-0">
-                      {brother.email && (
-                        <a href={`mailto:${brother.email}`} className="text-sm text-cream hover:text-cream-dark transition-colors hidden md:inline">
-                          {brother.email}
-                        </a>
-                      )}
-                      {brother.phone ? (
-                        <a href={`tel:${formatPhoneLink(brother.phone)}`} className="flex items-center gap-2 text-sm text-cream hover:text-cream-dark transition-colors">
-                          <Phone className="w-4 h-4" />
-                          <span className="hidden sm:inline">{brother.phone}</span>
-                        </a>
-                      ) : (
-                        <span className="text-muted-foreground/40 text-sm">—</span>
-                      )}
-                    </div>
-                  </div>
-                  {linkList.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                      {linkList.map((link, i) => {
-                        const href = link.startsWith('http') ? link : `https://${link}`;
-                        return (
-                          <a
-                            key={i}
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-cream/80 hover:text-cream underline underline-offset-2 break-all"
-                          >
-                            {link}
-                          </a>
-                        );
-                      })}
-                    </div>
+                <div className="text-center">
+                  <span className="text-cream text-sm font-semibold tracking-[0.3em] uppercase">Chapter Leadership</span>
+                  <h2 className="font-display text-3xl md:text-4xl text-foreground mt-3 mb-2">Polemarch</h2>
+                  <div className="w-16 h-0.5 bg-cream mx-auto mb-8" />
+                  <p className="font-display text-2xl text-cream">{polemarch.first_name} {polemarch.last_name}</p>
+                  <p className="text-muted-foreground mt-1">{polemarch.semester_label}</p>
+                  {polemarch.phone && (
+                    <a href={`tel:${formatPhoneLink(polemarch.phone)}`} className="inline-flex items-center gap-2 mt-4 text-cream hover:text-cream-dark transition-colors">
+                      <Phone className="w-4 h-4" />
+                      <span>{polemarch.phone}</span>
+                    </a>
                   )}
-                </motion.div>
-              );
-            })}
-            {filteredBrothers.length === 0 && (
-              <p className="text-center text-muted-foreground py-8">No brothers match your search.</p>
-            )}
-          </div>
+                </div>
+              </div>
+            </section>
+          )}
 
-          {/* Quick Links */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mt-16 bg-card border border-border p-8">
-            <h3 className="font-display text-2xl text-cream mb-6">QUICK LINKS</h3>
-            <div className="grid sm:grid-cols-2 gap-3">
-              <a href="https://kappaalphapsi1911.com" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">IHQ Portal →</a>
-              <a href="https://epkapsi.org" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Eastern Province →</a>
-              <a href="https://benchmarkkappas.org/" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Baltimore Alumni Chapter →</a>
-              <a href="https://nphchq.com" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">NPHC →</a>
-              <a href="https://morgan.edu" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Morgan State University →</a>
-              <a href="https://thekappafoundation.org/" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Kappa Foundation →</a>
+          {/* Directory */}
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-6 max-w-5xl">
+              <div className="mb-10 space-y-3">
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Search by name, line name, occupation, state, field..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-12 py-6 text-lg bg-card border-border"
+                  />
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <select value={yearFilter} onChange={(e) => setYearFilter(e.target.value)} className="h-11 px-3 bg-card border border-border text-foreground">
+                    <option value="all">All Years / Lines</option>
+                    {yearOptions.map(y => <option key={y} value={y}>{y}</option>)}
+                  </select>
+                  <select value={fieldFilter} onChange={(e) => setFieldFilter(e.target.value)} className="h-11 px-3 bg-card border border-border text-foreground">
+                    <option value="all">All Fields</option>
+                    {fieldOptions.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                  <select value={stateFilter} onChange={(e) => setStateFilter(e.target.value)} className="h-11 px-3 bg-card border border-border text-foreground">
+                    <option value="all">All States</option>
+                    {stateOptions.map(s => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                  <select value={occupationFilter} onChange={(e) => setOccupationFilter(e.target.value)} className="h-11 px-3 bg-card border border-border text-foreground">
+                    <option value="all">All Occupations</option>
+                    {occupationOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
+                {(yearFilter !== 'all' || occupationFilter !== 'all' || stateFilter !== 'all' || fieldFilter !== 'all' || searchQuery) && (
+                  <button
+                    type="button"
+                    onClick={() => { setYearFilter('all'); setOccupationFilter('all'); setStateFilter('all'); setFieldFilter('all'); setSearchQuery(''); }}
+                    className="h-9 px-3 border border-border text-muted-foreground hover:text-foreground hover:border-cream/30 transition-colors text-sm"
+                  >
+                    Clear filters
+                  </button>
+                )}
+                <p className="text-xs text-muted-foreground">
+                  Showing {filteredBrothers.length} of {brothers.length} brothers
+                </p>
+              </div>
+
+              <div className="grid gap-2">
+                {filteredBrothers.map((brother) => {
+                  const linkList = (brother.links || '').split(',').map(l => l.trim()).filter(Boolean);
+                  return (
+                    <motion.div
+                      key={brother.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="py-3 px-4 bg-card border border-border hover:border-cream/30 transition-colors"
+                    >
+                      <div className="flex items-start justify-between gap-4 flex-wrap">
+                        <div className="flex items-center gap-3 flex-wrap min-w-0">
+                          <span className="text-foreground font-medium">{brother.first_name} {brother.last_name}</span>
+                          {brother.line_name && (
+                            <span className="text-xs italic text-cream/80">"{brother.line_name}"</span>
+                          )}
+                          {brother.role && (
+                            <span className="text-xs bg-cream/20 text-cream px-2 py-0.5 rounded font-semibold uppercase tracking-wider">{brother.role}</span>
+                          )}
+                          {brother.position && (
+                            <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded font-semibold">{brother.position}</span>
+                          )}
+                          <span className="text-xs text-muted-foreground">{brother.semester_label}</span>
+                          {brother.field_category && (
+                            <span className="text-xs text-muted-foreground">• {brother.field_category}</span>
+                          )}
+                          {brother.state && (
+                            <span className="text-xs text-muted-foreground">• {brother.state}</span>
+                          )}
+                          {brother.field_of_study && (
+                            <span className="text-xs text-muted-foreground hidden sm:inline">• {brother.field_of_study}</span>
+                          )}
+                          {brother.job && (
+                            <span className="text-xs text-muted-foreground hidden md:inline">• {brother.job}</span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-4 shrink-0">
+                          {brother.email && (
+                            <a href={`mailto:${brother.email}`} className="text-sm text-cream hover:text-cream-dark transition-colors hidden md:inline">
+                              {brother.email}
+                            </a>
+                          )}
+                          {brother.phone ? (
+                            <a href={`tel:${formatPhoneLink(brother.phone)}`} className="flex items-center gap-2 text-sm text-cream hover:text-cream-dark transition-colors">
+                              <Phone className="w-4 h-4" />
+                              <span className="hidden sm:inline">{brother.phone}</span>
+                            </a>
+                          ) : (
+                            <span className="text-muted-foreground/40 text-sm">—</span>
+                          )}
+                        </div>
+                      </div>
+                      {linkList.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                          {linkList.map((link, i) => {
+                            const href = link.startsWith('http') ? link : `https://${link}`;
+                            return (
+                              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-cream/80 hover:text-cream underline underline-offset-2 break-all">
+                                {link}
+                              </a>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+                {filteredBrothers.length === 0 && (
+                  <p className="text-center text-muted-foreground py-8">No brothers match your search.</p>
+                )}
+              </div>
+
+              {/* Quick Links */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mt-16 bg-card border border-border p-8">
+                <h3 className="font-display text-2xl text-cream mb-6">QUICK LINKS</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <a href="https://kappaalphapsi1911.com" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">IHQ Portal →</a>
+                  <a href="https://epkapsi.org" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Eastern Province →</a>
+                  <a href="https://benchmarkkappas.org/" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Baltimore Alumni Chapter →</a>
+                  <a href="https://nphchq.com" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">NPHC →</a>
+                  <a href="https://morgan.edu" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Morgan State University →</a>
+                  <a href="https://thekappafoundation.org/" target="_blank" rel="noopener noreferrer" className="text-cream hover:underline">Kappa Foundation →</a>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </>
   );
 };
