@@ -1,0 +1,1 @@
+ALTER TABLE public.brothers ADD COLUMN IF NOT EXISTS state text; ALTER TABLE public.brothers ADD COLUMN IF NOT EXISTS field_category text;
