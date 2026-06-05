@@ -27,6 +27,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
     job: '',
     links: '',
     line_name: '',
+    state: '',
+    field_category: '',
   });
   const { toast } = useToast();
 
