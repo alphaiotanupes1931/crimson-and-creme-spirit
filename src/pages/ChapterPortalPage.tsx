@@ -46,8 +46,11 @@ export const ChapterPortalPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [yearFilter, setYearFilter] = useState('all');
   const [occupationFilter, setOccupationFilter] = useState('all');
+  const [stateFilter, setStateFilter] = useState('all');
+  const [fieldFilter, setFieldFilter] = useState('all');
   const [showEditor, setShowEditor] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [portalView, setPortalView] = useState<PortalView>('apps');
 
   // Check auth state
   useEffect(() => {
