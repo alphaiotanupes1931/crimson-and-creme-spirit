@@ -40,6 +40,14 @@ const navItems = [
   { name: 'Portal', href: '/portal' },
   { name: 'Contact', href: '/contact' },
   { name: 'Merch', href: 'https://alphaiotamerch.com', external: true },
+  {
+    name: 'Donate',
+    href: '/donate',
+    children: [
+      { name: 'Alpha Iota Undergraduates', href: '/donate#undergraduates' },
+      { name: 'AI Foundation', href: '/donate#foundation' },
+    ],
+  },
 ];
 
 export const Header = () => {

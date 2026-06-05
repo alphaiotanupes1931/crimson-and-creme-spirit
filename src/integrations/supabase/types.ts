@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           created_at: string
           email: string | null
+          field_category: string | null
           field_of_study: string | null
           first_name: string
           id: string
@@ -31,12 +32,14 @@ export type Database = {
           semester: string
           semester_label: string
           semester_sort: number
+          state: string | null
           updated_at: string
           user_id: string | null
         }
         Insert: {
           created_at?: string
           email?: string | null
+          field_category?: string | null
           field_of_study?: string | null
           first_name: string
           id?: string
@@ -50,12 +53,14 @@ export type Database = {
           semester: string
           semester_label?: string
           semester_sort?: number
+          state?: string | null
           updated_at?: string
           user_id?: string | null
         }
         Update: {
           created_at?: string
           email?: string | null
+          field_category?: string | null
           field_of_study?: string | null
           first_name?: string
           id?: string
@@ -69,6 +74,7 @@ export type Database = {
           semester?: string
           semester_label?: string
           semester_sort?: number
+          state?: string | null
           updated_at?: string
           user_id?: string | null
         }

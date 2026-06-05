@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { US_STATES, FIELD_CATEGORIES } from '@/data/portalOptions';
 
 interface ProfileEditorProps {
   userId: string;
@@ -26,6 +27,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
     job: '',
     links: '',
     line_name: '',
+    state: '',
+    field_category: '',
   });
   const { toast } = useToast();
 
@@ -49,6 +52,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
           job: data.job || '',
           links: (data as any).links || '',
           line_name: (data as any).line_name || '',
+          state: (data as any).state || '',
+          field_category: (data as any).field_category || '',
         });
       }
       setLoading(false);
@@ -68,6 +73,8 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
         job: profile.job || null,
         links: profile.links || null,
         line_name: profile.line_name || null,
+        state: profile.state || null,
+        field_category: profile.field_category || null,
       } as any)
       .eq('user_id', userId);
 
@@ -166,6 +173,31 @@ export const ProfileEditor = ({ userId, onClose, onSaved }: ProfileEditorProps) 
             placeholder="e.g. Software Engineer at Google"
             className="bg-card border-border"
           />
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Field / Industry</label>
+            <select
+              value={profile.field_category}
+              onChange={(e) => setProfile({ ...profile, field_category: e.target.value })}
+              className="w-full h-10 px-3 bg-card border border-border text-foreground"
+            >
+              <option value="">Select field…</option>
+              {FIELD_CATEGORIES.map(f => <option key={f} value={f}>{f}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">State</label>
+            <select
+              value={profile.state}
+              onChange={(e) => setProfile({ ...profile, state: e.target.value })}
+              className="w-full h-10 px-3 bg-card border border-border text-foreground"
+            >
+              <option value="">Select state…</option>
+              {US_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
         </div>
 
         <div>
