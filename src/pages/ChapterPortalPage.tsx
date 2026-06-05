@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { Lock, Phone, Search, LogOut, Edit } from 'lucide-react';
+import { Lock, Phone, Search, LogOut, Edit, ArrowLeft } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import portalHeader from '@/assets/portal-header.png';
@@ -8,6 +8,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { PortalAuth } from '@/components/portal/PortalAuth';
 import { ProfileEditor } from '@/components/portal/ProfileEditor';
 import { OnboardingForm } from '@/components/portal/OnboardingForm';
+import { AppSuite, PlaceholderApp, PortalView } from '@/components/portal/AppSuite';
+import { US_STATES, FIELD_CATEGORIES } from '@/data/portalOptions';
 
 const CHAPTER_PASSWORD = 'admin123';
 
